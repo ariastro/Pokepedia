@@ -9,7 +9,6 @@ buildscript {
         lifecycleVersion = "2.2.0"
         sspVersion = "1.0.6"
         sdpVersion = "1.0.6"
-        fragmentVersion = "1.3.6"
         threeTenAbpVersion = "1.3.0"
         timberVersion = "4.7.1"
         moshiVersion = "1.11.0"
@@ -19,8 +18,7 @@ buildscript {
         hiltVersion = '2.40.2'
         viewbindingVersion = '1.0.3'
         navigation = '2.3.5'
-        activityKTXVersion = "1.3.1"
-        fragmentKTXVersion = "1.3.6"
+        ktxVersion = "1.4.0"
     }
     repositories {
         google()

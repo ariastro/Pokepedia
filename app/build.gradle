@@ -66,12 +66,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation"
 
-    // architectureComponents
-    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
-
     // Activity KTX for viewModels()
-    implementation "androidx.activity:activity-ktx:$activityKTXVersion"
-    implementation "androidx.fragment:fragment-ktx:$fragmentKTXVersion"
+    implementation "androidx.activity:activity-ktx:$ktxVersion"
+    implementation "androidx.fragment:fragment-ktx:$ktxVersion"
 
     // viewBinding Helper
     implementation "com.github.yogacp:android-viewbinding:$viewbindingVersion"
