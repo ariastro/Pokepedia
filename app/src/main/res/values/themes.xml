@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 	<!-- Base application theme. -->
-	<style name="Theme.Pokedexin" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+	<style name="Theme.Pokedexin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 		<!-- Primary brand color. -->
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimary</item>
@@ -9,4 +9,111 @@
 		<item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
 		<!-- Customize your theme here. -->
 	</style>
+
+	<style name="PoxedexinTypographyStyles.Heading1" parent="TextAppearance.MaterialComponents.Headline1">
+		<item name="fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:includeFontPadding">false</item>
+		<item name="android:textSize">@dimen/_40ssp</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Heading2" parent="TextAppearance.MaterialComponents.Headline2">
+		<item name="fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:includeFontPadding">false</item>
+		<item name="android:textSize">@dimen/_32ssp</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Heading3" parent="TextAppearance.MaterialComponents.Headline3">
+		<item name="fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:includeFontPadding">false</item>
+		<item name="android:textSize">@dimen/_28ssp</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Heading4" parent="TextAppearance.MaterialComponents.Headline4">
+		<item name="fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:includeFontPadding">false</item>
+		<item name="android:textSize">@dimen/_24ssp</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+		<item name="fontFamily">@font/sf_pro_display_regular</item>
+		<item name="android:fontFamily">@font/sf_pro_display_regular</item>
+		<item name="android:textSize">@dimen/_16ssp</item>
+		<item name="android:includeFontPadding">false</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Subtitle1.Bold" parent="PoxedexinTypographyStyles.Subtitle1">
+		<item name="fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Subtitle1.Medium" parent="PoxedexinTypographyStyles.Subtitle1">
+		<item name="fontFamily">@font/sf_pro_display_medium</item>
+		<item name="android:fontFamily">@font/sf_pro_display_medium</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+		<item name="fontFamily">@font/sf_pro_display_regular</item>
+		<item name="android:fontFamily">@font/sf_pro_display_regular</item>
+		<item name="android:textSize">@dimen/_14ssp</item>
+		<item name="android:includeFontPadding">false</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Subtitle2.Bold" parent="PoxedexinTypographyStyles.Subtitle2">
+		<item name="fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Subtitle2.Medium" parent="PoxedexinTypographyStyles.Subtitle2">
+		<item name="fontFamily">@font/sf_pro_display_medium</item>
+		<item name="android:fontFamily">@font/sf_pro_display_medium</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Body1" parent="TextAppearance.MaterialComponents.Body1">
+		<item name="fontFamily">@font/sf_pro_display_regular</item>
+		<item name="android:fontFamily">@font/sf_pro_display_regular</item>
+		<item name="android:textSize">@dimen/_12ssp</item>
+		<item name="android:includeFontPadding">false</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Body1.Bold" parent="PoxedexinTypographyStyles.Body1">
+		<item name="fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Body1.Medium" parent="PoxedexinTypographyStyles.Body1">
+		<item name="fontFamily">@font/sf_pro_display_medium</item>
+		<item name="android:fontFamily">@font/sf_pro_display_medium</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Body2" parent="TextAppearance.MaterialComponents.Body2">
+		<item name="fontFamily">@font/sf_pro_display_regular</item>
+		<item name="android:fontFamily">@font/sf_pro_display_regular</item>
+		<item name="android:textSize">@dimen/_10ssp</item>
+		<item name="android:includeFontPadding">false</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Body2.Bold" parent="PoxedexinTypographyStyles.Body2">
+		<item name="fontFamily">@font/sf_pro_display_bold</item>
+		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
+	</style>
+
+	<style name="PoxedexinTypographyStyles.Body2.Medium" parent="PoxedexinTypographyStyles.Body2">
+		<item name="fontFamily">@font/sf_pro_display_medium</item>
+		<item name="android:fontFamily">@font/sf_pro_display_medium</item>
+	</style>
+
+	<style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+		<item name="iconPadding">0dp</item>
+		<item name="android:insetTop">0dp</item>
+		<item name="android:insetBottom">0dp</item>
+		<item name="android:paddingLeft">@dimen/_8sdp</item>
+		<item name="android:paddingRight">@dimen/_8sdp</item>
+		<item name="android:minWidth">@dimen/_32sdp</item>
+		<item name="android:minHeight">@dimen/_32sdp</item>
+	</style>
+
 </resources>
