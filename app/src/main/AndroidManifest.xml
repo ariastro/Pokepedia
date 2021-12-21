@@ -3,6 +3,7 @@
 	package="io.astronout.pokedexin">
 
 	<application
+		android:name=".PoxedexinApp"
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
@@ -10,8 +11,9 @@
 		android:supportsRtl="true"
 		android:theme="@style/Theme.Pokedexin">
 		<activity
-			android:name=".MainActivity"
-			android:exported="true">
+			android:name=".ui.main.MainActivity"
+			android:exported="true"
+			android:theme="@style/Theme.App.Starting">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 
