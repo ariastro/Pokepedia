@@ -13,9 +13,16 @@ import io.astronout.pokedexin.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by viewBinding()
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
+
+        setupNavHost()
+    }
+
+    private fun setupNavHost() {
+        val navHostFragment = supportFragmentManager.findFragmentById(binding.navHostMain.id) as NavHostFragment
+        navController = navHostFragment.navController
     }
 }

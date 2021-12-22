@@ -34,7 +34,6 @@
 		style="@style/Pokedexin.Button.OutlinedButton.IconOnly"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginStart="@dimen/_16sdp"
 		app:cornerRadius="@dimen/_10sdp"
 		app:icon="@drawable/ic_sort"
 		app:iconTint="@color/dark"
