@@ -81,4 +81,25 @@
 		app:layout_constraintStart_toStartOf="@+id/pokedex_title"
 		app:layout_constraintTop_toBottomOf="@+id/pokedex_title" />
 
+	<com.kennyc.view.MultiStateView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintEnd_toEndOf="parent"
+		android:layout_marginTop="@dimen/_20sdp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/pokedex_subtitle"
+		app:msv_animateViewChanges="true"
+		app:msv_loadingView="@layout/layout_loading_state_pokemon"
+		app:msv_viewState="loading"
+		tools:msv_viewState="content">
+
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/rv_pokemon"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+			tools:listitem="@layout/item_pokemon"/>
+
+	</com.kennyc.view.MultiStateView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

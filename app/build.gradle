@@ -126,4 +126,7 @@ dependencies {
     implementation "com.github.Kennyc1012:MultiStateView:$multiStateViewVersion"
 
     implementation "androidx.core:core-splashscreen:1.0.0-alpha02"
+
+    // shimmer
+    implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
 }

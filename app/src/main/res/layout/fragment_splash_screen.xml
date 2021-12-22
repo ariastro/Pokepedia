@@ -24,12 +24,27 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/pokedexin"
-		android:layout_marginTop="@dimen/_4sdp"
-		android:textAppearance="@style/PoxedexinTypographyStyles.Heading3"
+		android:layout_marginTop="@dimen/_8sdp"
+		android:includeFontPadding="false"
+		android:textAppearance="@style/PoxedexinTypographyStyles.Heading2"
 		android:textColor="@color/light"
-		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintBottom_toTopOf="@+id/tv_app_subtitle"
 		app:layout_constraintEnd_toEndOf="@+id/img_pokeball"
 		app:layout_constraintStart_toStartOf="@+id/img_pokeball"
 		app:layout_constraintTop_toBottomOf="@+id/img_pokeball" />
+
+	<TextView
+		android:id="@+id/tv_app_subtitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/gotta_know_em_all"
+		android:layout_marginTop="@dimen/_2sdp"
+		android:includeFontPadding="false"
+		android:textAppearance="@style/PoxedexinTypographyStyles.Body1"
+		android:textColor="@color/light"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="@+id/tv_app_name"
+		app:layout_constraintStart_toStartOf="@+id/tv_app_name"
+		app:layout_constraintTop_toBottomOf="@+id/tv_app_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
