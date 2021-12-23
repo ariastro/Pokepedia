@@ -6,31 +6,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
+import com.kennyc.view.MultiStateView
 import io.astronout.pokedexin.R
 import io.astronout.pokedexin.databinding.FragmentHomeBinding
+import io.astronout.pokedexin.ui.home.adapter.PokemonAdapter
+import io.astronout.pokedexin.utils.wait
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private val binding: FragmentHomeBinding by viewBinding()
+    private val adapter = PokemonAdapter(onClickListener = {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeBinding.inflate(layoutInflater)
-        return binding.root
-    }
+    })
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupUI()
+
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun setupUI() {
+        with(binding) {
+            wait(2000) {
+                msvPokemon.viewState = MultiStateView.ViewState.CONTENT
+            }
+            rvPokemon.adapter = adapter
+        }
     }
 
 }
