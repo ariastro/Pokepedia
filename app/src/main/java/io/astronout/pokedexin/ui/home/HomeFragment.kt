@@ -28,7 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupUI() {
         with(binding) {
-            wait(2000) {
+            wait(10000) {
                 msvPokemon.viewState = MultiStateView.ViewState.CONTENT
             }
             rvPokemon.adapter = adapter

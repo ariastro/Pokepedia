@@ -36,7 +36,7 @@ class PokemonAdapter(private val onClickListener: () -> Unit) :
                     .load(R.drawable.bulbasaur)
                     .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
                     .into(itemBinding.imgPokemon)
-                root.setCardBackgroundColorResource(R.color.background_type_grass)
+                cardPokemon.setCardBackgroundColorResource(R.color.background_type_grass)
                 tvPokemonIndex.text = "#001"
                 tvPokemonName.text = "Bulbasaur"
                 root.setOnClickListener {

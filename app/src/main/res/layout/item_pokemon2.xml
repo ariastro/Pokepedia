@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginHorizontal="@dimen/_20sdp"
+	android:layout_marginVertical="@dimen/_6sdp"
+	app:cardCornerRadius="@dimen/_12sdp"
+	tools:cardBackgroundColor="@color/background_type_grass">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<androidx.appcompat.widget.AppCompatImageView
+			android:id="@+id/img_pokeball"
+			android:layout_width="@dimen/_110sdp"
+			android:layout_height="@dimen/_95sdp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:srcCompat="@drawable/ic_pokeball" />
+
+		<androidx.appcompat.widget.AppCompatImageView
+			android:id="@+id/img_pokemon"
+			android:layout_width="@dimen/_90sdp"
+			android:layout_height="@dimen/_90sdp"
+			android:layout_marginVertical="@dimen/_12sdp"
+			android:layout_marginEnd="@dimen/_16sdp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:srcCompat="@drawable/bulbasaur" />
+
+		<androidx.appcompat.widget.AppCompatImageView
+			android:id="@+id/img_pattern"
+			android:layout_width="@dimen/_80sdp"
+			android:layout_height="@dimen/_60sdp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.335"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:srcCompat="@drawable/ic_pattern" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/tv_pokemon_index"
+			style="@style/PoxedexinTypographyStyles.Body1.Bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/_16sdp"
+			android:layout_marginTop="@dimen/_16sdp"
+			android:textColor="@color/gray1"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:text="#001" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/tv_pokemon_name"
+			style="@style/PoxedexinTypographyStyles.Heading4"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="@dimen/_6sdp"
+			android:textColor="@color/light"
+			app:layout_constraintEnd_toStartOf="@+id/img_pokemon"
+			app:layout_constraintStart_toStartOf="@+id/tv_pokemon_index"
+			app:layout_constraintTop_toBottomOf="@+id/tv_pokemon_index"
+			tools:text="Bulbasaur" />
+
+		<com.google.android.material.chip.ChipGroup
+			android:id="@+id/type_chip_group"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			app:chipSpacingHorizontal="@dimen/_3sdp"
+			app:layout_constraintEnd_toEndOf="@+id/tv_pokemon_name"
+			app:layout_constraintStart_toStartOf="@+id/tv_pokemon_name"
+			app:layout_constraintTop_toBottomOf="@+id/tv_pokemon_name">
+
+			<com.google.android.material.chip.Chip
+				android:id="@+id/chip1"
+				style="@style/PoxedexinTypographyStyles.Body2.Medium"
+				android:layout_width="wrap_content"
+				android:layout_height="@dimen/_34sdp"
+				android:textColor="@color/light"
+				app:chipBackgroundColor="@color/type_grass"
+				app:chipCornerRadius="@dimen/_6sdp"
+				app:chipIcon="@drawable/ic_grass"
+				app:chipIconTint="@color/light"
+				app:textStartPadding="0dp"
+				android:text="Grass" />
+
+			<com.google.android.material.chip.Chip
+				android:id="@+id/chip2"
+				style="@style/PoxedexinTypographyStyles.Body2.Medium"
+				android:layout_width="wrap_content"
+				android:layout_height="@dimen/_34sdp"
+				android:textColor="@color/light"
+				app:chipBackgroundColor="@color/type_poison"
+				app:chipCornerRadius="@dimen/_6sdp"
+				app:chipIcon="@drawable/ic_poison"
+				app:chipIconTint="@color/light"
+				app:textStartPadding="0dp"
+				android:text="Poison" />
+
+		</com.google.android.material.chip.ChipGroup>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
