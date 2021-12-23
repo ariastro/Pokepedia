@@ -24,6 +24,7 @@ android {
         release {
             resValue "string", "app_name", """Poxedexin"""
             buildConfigField("String", "VARIANT", "\"release\"")
+            buildConfigField "String", "BASE_URL", BASE_URL
             debuggable = false
             minifyEnabled true
             shrinkResources true
@@ -33,6 +34,7 @@ android {
         debug {
             resValue "string", "app_name", """Poxedexin-Debug"""
             buildConfigField("String", "VARIANT", "\"development\"")
+            buildConfigField "String", "BASE_URL", BASE_URL
             versionNameSuffix "-dev"
             minifyEnabled false
             debuggable true
