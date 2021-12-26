@@ -6,7 +6,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.astronout.pokepedia.BuildConfig
-import io.astronout.pokepedia.data.source.remote.PokedexService
+import io.astronout.pokepedia.data.source.PokepediaRepositoryImpl
+import io.astronout.pokepedia.data.source.remote.PokepediaService
+import io.astronout.pokepedia.data.source.remote.RemoteDataSource
+import io.astronout.pokepedia.domain.repository.PokepediaRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
@@ -41,13 +44,21 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providePokedexService(retrofit: Retrofit): PokedexService =
-        retrofit.create(PokedexService::class.java)
+    fun providePokepediaService(retrofit: Retrofit): PokepediaService =
+        retrofit.create(PokepediaService::class.java)
 
     @Provides
     @Singleton
     fun provideIODispatcher(): CoroutineDispatcher {
         return Dispatchers.IO
     }
+
+    @Provides
+    @Singleton
+    fun provideRemoteDataSource(pokepediaService: PokepediaService) = RemoteDataSource(pokepediaService)
+
+    @Provides
+    @Singleton
+    fun providePokepediaRepository(remoteDataSource: RemoteDataSource): PokepediaRepository = PokepediaRepositoryImpl(remoteDataSource)
 
 }

@@ -22,7 +22,7 @@ android {
 
     buildTypes {
         release {
-            resValue "string", "app_name", """Pokepedia"""
+            resValue "string", "app_name", """Poképedia"""
             buildConfigField("String", "VARIANT", "\"release\"")
             buildConfigField "String", "BASE_URL", BASE_URL
             debuggable = false
