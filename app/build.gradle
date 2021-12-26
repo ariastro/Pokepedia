@@ -16,13 +16,13 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-        setProperty("archivesBaseName", "Poképedia-v$versionName")
+        setProperty("archivesBaseName", "Pokepedia-v$versionName")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            resValue "string", "app_name", """Poképedia"""
+            resValue "string", "app_name", """Pokepedia"""
             buildConfigField("String", "VARIANT", "\"release\"")
             buildConfigField "String", "BASE_URL", BASE_URL
             debuggable = false

@@ -3,8 +3,11 @@ package io.astronout.pokepedia.ui.home.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.GenericTransitionOptions
+import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.ItemPokemonBinding
 import io.astronout.pokepedia.di.GlideApp
+import io.astronout.pokepedia.utils.setCardBackgroundColorResource
 
 class PokemonAdapter(private val onClickListener: () -> Unit) :
     RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
