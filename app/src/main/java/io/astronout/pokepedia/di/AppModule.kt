@@ -1,12 +1,12 @@
-package io.astronout.pokedexin.di
+package io.astronout.pokepedia.di
 
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.astronout.pokedexin.BuildConfig
-import io.astronout.pokedexin.data.source.remote.PokedexService
+import io.astronout.pokepedia.BuildConfig
+import io.astronout.pokepedia.data.source.remote.PokedexService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient

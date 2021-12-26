@@ -22,7 +22,7 @@
 
 		<com.google.android.material.button.MaterialButton
 			android:id="@+id/img_generation"
-			style="@style/Pokedexin.Button.OutlinedButton.IconOnly"
+			style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			app:cornerRadius="@dimen/_10sdp"
@@ -35,7 +35,7 @@
 
 		<com.google.android.material.button.MaterialButton
 			android:id="@+id/img_sort"
-			style="@style/Pokedexin.Button.OutlinedButton.IconOnly"
+			style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			app:cornerRadius="@dimen/_10sdp"
@@ -48,7 +48,7 @@
 
 		<com.google.android.material.button.MaterialButton
 			android:id="@+id/img_filter"
-			style="@style/Pokedexin.Button.OutlinedButton.IconOnly"
+			style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/_12sdp"
@@ -62,7 +62,7 @@
 
 		<androidx.appcompat.widget.AppCompatTextView
 			android:id="@+id/pokedex_title"
-			style="@style/PoxedexinTypographyStyles.Heading2"
+			style="@style/PokepediaTypographyStyles.Heading2"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginHorizontal="@dimen/_20sdp"
@@ -75,7 +75,7 @@
 
 		<androidx.appcompat.widget.AppCompatTextView
 			android:id="@+id/pokedex_subtitle"
-			style="@style/PoxedexinTypographyStyles.Body1"
+			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/_4sdp"

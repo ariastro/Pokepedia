@@ -1,4 +1,4 @@
-package io.astronout.pokedexin
+package io.astronout.pokepedia
 
 import org.junit.Test
 

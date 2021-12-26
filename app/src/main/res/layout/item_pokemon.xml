@@ -39,7 +39,7 @@
 
 			<androidx.appcompat.widget.AppCompatTextView
 				android:id="@+id/tv_pokemon_index"
-				style="@style/PoxedexinTypographyStyles.Body1.Bold"
+				style="@style/PokepediaTypographyStyles.Body1.Bold"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginHorizontal="@dimen/_10sdp"
@@ -52,7 +52,7 @@
 
 			<androidx.appcompat.widget.AppCompatTextView
 				android:id="@+id/tv_pokemon_name"
-				style="@style/PoxedexinTypographyStyles.Heading5"
+				style="@style/PokepediaTypographyStyles.Heading5"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/_10sdp"

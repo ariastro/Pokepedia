@@ -1,4 +1,4 @@
-package io.astronout.pokedexin.utils
+package io.astronout.pokepedia.utils
 
 import android.os.Handler
 import android.os.Looper

@@ -1,16 +1,14 @@
-package io.astronout.pokedexin.ui.home
+package io.astronout.pokepedia.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import com.kennyc.view.MultiStateView
-import io.astronout.pokedexin.R
-import io.astronout.pokedexin.databinding.FragmentHomeBinding
-import io.astronout.pokedexin.ui.home.adapter.PokemonAdapter
-import io.astronout.pokedexin.utils.wait
+import io.astronout.pokepedia.R
+import io.astronout.pokepedia.databinding.FragmentHomeBinding
+import io.astronout.pokepedia.ui.home.adapter.PokemonAdapter
+import io.astronout.pokepedia.utils.wait
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -28,7 +26,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupUI() {
         with(binding) {
-            wait(10000) {
+            wait(2000) {
                 msvPokemon.viewState = MultiStateView.ViewState.CONTENT
             }
             rvPokemon.adapter = adapter

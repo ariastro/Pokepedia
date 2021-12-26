@@ -1,14 +1,11 @@
-package io.astronout.pokedexin.ui.main
+package io.astronout.pokepedia.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.viewbinding.library.activity.viewBinding
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import io.astronout.pokedexin.R
-import io.astronout.pokedexin.databinding.ActivityMainBinding
+import io.astronout.pokepedia.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

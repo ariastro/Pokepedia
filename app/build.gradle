@@ -11,18 +11,18 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "io.astronout.pokedexin"
+        applicationId "io.astronout.pokepedia"
         minSdk 23
         targetSdk 31
         versionCode 1
         versionName "1.0"
-        setProperty("archivesBaseName", "Poxedexin-v$versionName")
+        setProperty("archivesBaseName", "Poképedia-v$versionName")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            resValue "string", "app_name", """Poxedexin"""
+            resValue "string", "app_name", """Poképedia"""
             buildConfigField("String", "VARIANT", "\"release\"")
             buildConfigField "String", "BASE_URL", BASE_URL
             debuggable = false
@@ -32,7 +32,7 @@ android {
             testCoverageEnabled false
         }
         debug {
-            resValue "string", "app_name", """Poxedexin-Debug"""
+            resValue "string", "app_name", """Poképedia-Debug"""
             buildConfigField("String", "VARIANT", "\"development\"")
             buildConfigField "String", "BASE_URL", BASE_URL
             versionNameSuffix "-dev"

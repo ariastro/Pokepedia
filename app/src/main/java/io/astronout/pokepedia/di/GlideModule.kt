@@ -1,4 +1,4 @@
-package io.astronout.pokedexin.di
+package io.astronout.pokepedia.di
 
 import android.content.Context
 import com.bumptech.glide.GlideBuilder
@@ -7,8 +7,7 @@ import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.RequestOptions
-import io.astronout.pokedexin.R
-import io.astronout.pokedexin.utils.shimmerDrawable
+import io.astronout.pokepedia.utils.shimmerDrawable
 
 @GlideModule
 class GlideModule : AppGlideModule() {
