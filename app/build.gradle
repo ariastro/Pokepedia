@@ -131,4 +131,7 @@ dependencies {
 
     // shimmer
     implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
+
+    // Paging
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 }

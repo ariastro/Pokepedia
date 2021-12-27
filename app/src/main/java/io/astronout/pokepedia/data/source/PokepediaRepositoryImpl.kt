@@ -6,6 +6,11 @@ import javax.inject.Inject
 
 class PokepediaRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource
-    ) : PokepediaRepository {
+) : PokepediaRepository {
+
+    companion object {
+        const val STARTING_OFFSET_INDEX = 0
+    }
 
 }
+

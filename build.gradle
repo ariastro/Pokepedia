@@ -21,6 +21,7 @@ buildscript {
         ktxVersion = "1.4.0"
         multiStateViewVersion = "2.2.0"
         shimmerVersion = "0.5.0"
+        pagingVersion = "3.1.0"
     }
     repositories {
         google()

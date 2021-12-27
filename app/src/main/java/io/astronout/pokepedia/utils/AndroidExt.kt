@@ -56,3 +56,7 @@ fun MaterialCardView.setCardBackgroundColorResource(colorId: Int) {
         )
     )
 }
+
+fun String.getPokemonId() = this.substringAfter("pokemon").replace("/", "").toInt()
+
+fun String.getPokemonImage() = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.getPokemonId()}.svg"
