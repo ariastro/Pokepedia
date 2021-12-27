@@ -1,9 +1,11 @@
 package io.astronout.pokepedia.utils
 
+import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -66,12 +68,11 @@ fun String.capitalize() = replaceFirstChar {
     ) else it.toString()
 }
 
+fun Context.getColorResource(@ColorRes color: Int) = ContextCompat.getColor(this, color)
+
 fun MaterialCardView.setCardBackgroundColorResource(colorId: Int) {
     setCardBackgroundColor(
-        ContextCompat.getColor(
-            context,
-            colorId
-        )
+        context.getColorResource(colorId)
     )
 }
 

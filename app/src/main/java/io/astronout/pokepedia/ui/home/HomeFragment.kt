@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.FragmentHomeBinding
 import io.astronout.pokepedia.ui.home.adapter.LoadStateAdapter
+import io.astronout.pokepedia.ui.home.adapter.PokemonAdapter
 import io.astronout.pokepedia.utils.collectLatestLifecycleFlow
 import io.astronout.pokepedia.utils.collectLifecycleFlow
 import io.astronout.pokepedia.utils.showToast
@@ -58,9 +59,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 val isListEmpty = loadState.refresh is LoadState.NotLoading && adapter.itemCount == 0
                 // show empty list
 //                showEmptyState(isListEmpty)
-                // Show loading spinner during initial load or refresh.
                 msvPokemon.viewState = if (loadState.source.refresh is LoadState.Loading) MultiStateView.ViewState.LOADING else MultiStateView.ViewState.CONTENT
-//                if (loadState.source.refresh is LoadState.Loading) progress.show() else progress.dismiss()
                 // Toast on any error, regardless of whether it came from RemoteMediator or PagingSource
                 val errorState = loadState.source.append as? LoadState.Error
                     ?: loadState.source.prepend as? LoadState.Error
