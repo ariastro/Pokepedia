@@ -49,7 +49,7 @@
 		<item name="fontFamily">@font/sf_pro_display_bold</item>
 		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
 		<item name="android:includeFontPadding">false</item>
-		<item name="android:textSize">@dimen/_28ssp</item>
+		<item name="android:textSize">@dimen/_18ssp</item>
 	</style>
 
 	<style name="PokepediaTypographyStyles.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
@@ -128,6 +128,15 @@
 		<item name="android:paddingRight">@dimen/_8sdp</item>
 		<item name="android:minWidth">@dimen/_32sdp</item>
 		<item name="android:minHeight">@dimen/_32sdp</item>
+	</style>
+
+	<style name="Pokepedia.Button" parent="Widget.MaterialComponents.Button">
+		<item name="android:textAllCaps">false</item>
+		<item name="android:textAppearance">@style/PokepediaTypographyStyles.Body1.Medium</item>
+		<item name="android:letterSpacing">0</item>
+		<item name="cornerRadius">@dimen/_4sdp</item>
+		<item name="android:includeFontPadding">false</item>
+		<item name="android:textColor">@color/light</item>
 	</style>
 
 </resources>

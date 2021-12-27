@@ -2,6 +2,8 @@ package io.astronout.pokepedia.data.source.remote.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.skydoves.sandwich.suspendOnError
+import com.skydoves.sandwich.suspendOnException
 import com.skydoves.sandwich.suspendOnSuccess
 import io.astronout.pokepedia.data.source.PokepediaRepositoryImpl.Companion.STARTING_OFFSET_INDEX
 import io.astronout.pokepedia.data.source.remote.RemoteDataSource
@@ -29,19 +31,14 @@ class PokepediaPagingSource(
         val offset = params.key ?: STARTING_OFFSET_INDEX
 
         return try {
-            var response: PokemonResponse? = null
-            remoteDataSource.getAllPokemons(
+            val response = remoteDataSource.getAllPokemons(
                 limit = params.loadSize,
                 offset = offset
-            ).let {
-                it.suspendOnSuccess {
-                    response = data
-                }
-            }
+            )
             LoadResult.Page(
-                data = response?.results?.map { it.toPokemon() } ?: emptyList(),
+                data = response.results.map { it.toPokemon() },
                 prevKey = if (offset == STARTING_OFFSET_INDEX) null else offset - params.loadSize,
-                nextKey = if (response?.next == null) null else offset + params.loadSize
+                nextKey = if (response.next == null) null else offset + params.loadSize
             )
         } catch (exception: IOException) {
             LoadResult.Error(exception)

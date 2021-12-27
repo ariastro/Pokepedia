@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
@@ -7,110 +7,108 @@
 	android:background="@color/light"
 	tools:context=".ui.home.HomeFragment">
 
-	<androidx.constraintlayout.widget.ConstraintLayout
+	<androidx.appcompat.widget.AppCompatImageView
+		android:id="@+id/img_pokeball"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		android:layout_height="wrap_content"
+		android:background="@drawable/ic_pokeball_top"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
 
-		<androidx.appcompat.widget.AppCompatImageView
-			android:id="@+id/img_pokeball"
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/img_generation"
+		style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:cornerRadius="@dimen/_10sdp"
+		app:icon="@drawable/ic_generation"
+		app:iconTint="@color/dark"
+		app:layout_constraintBottom_toBottomOf="@+id/img_sort"
+		app:layout_constraintEnd_toStartOf="@+id/img_sort"
+		app:layout_constraintTop_toTopOf="@+id/img_sort"
+		app:strokeWidth="0dp" />
+
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/img_sort"
+		style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:cornerRadius="@dimen/_10sdp"
+		app:icon="@drawable/ic_sort"
+		app:iconTint="@color/dark"
+		app:layout_constraintBottom_toBottomOf="@+id/img_filter"
+		app:layout_constraintEnd_toStartOf="@+id/img_filter"
+		app:layout_constraintTop_toTopOf="@+id/img_filter"
+		app:strokeWidth="0dp" />
+
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/img_filter"
+		style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/_12sdp"
+		android:layout_marginEnd="@dimen/_12sdp"
+		app:cornerRadius="@dimen/_10sdp"
+		app:icon="@drawable/ic_filter"
+		app:iconTint="@color/dark"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:strokeWidth="0dp" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/pokedex_title"
+		style="@style/PokepediaTypographyStyles.Heading2"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="@dimen/_20sdp"
+		android:layout_marginTop="@dimen/_12sdp"
+		android:text="@string/pokedex"
+		android:textColor="@color/dark"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/img_filter" />
+
+	<androidx.appcompat.widget.AppCompatTextView
+		android:id="@+id/pokedex_subtitle"
+		style="@style/PokepediaTypographyStyles.Body1"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/_4sdp"
+		android:text="@string/search_for_pok_mon_by_name_or_using_the_national_pok_dex_number"
+		android:textColor="@color/gray3"
+		app:layout_constraintEnd_toEndOf="@+id/pokedex_title"
+		app:layout_constraintStart_toStartOf="@+id/pokedex_title"
+		app:layout_constraintTop_toBottomOf="@+id/pokedex_title" />
+
+	<com.kennyc.view.MultiStateView
+		android:id="@+id/msv_pokemon"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/pokedex_subtitle"
+		app:msv_animateViewChanges="true"
+		app:msv_loadingView="@layout/layout_loading_state_pokemon"
+		app:msv_viewState="loading"
+		tools:msv_viewState="content">
+
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/rv_pokemon"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:background="@drawable/ic_pokeball_top"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
-
-		<com.google.android.material.button.MaterialButton
-			android:id="@+id/img_generation"
-			style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			app:cornerRadius="@dimen/_10sdp"
-			app:icon="@drawable/ic_generation"
-			app:iconTint="@color/dark"
-			app:layout_constraintBottom_toBottomOf="@+id/img_sort"
-			app:layout_constraintEnd_toStartOf="@+id/img_sort"
-			app:layout_constraintTop_toTopOf="@+id/img_sort"
-			app:strokeWidth="0dp" />
-
-		<com.google.android.material.button.MaterialButton
-			android:id="@+id/img_sort"
-			style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			app:cornerRadius="@dimen/_10sdp"
-			app:icon="@drawable/ic_sort"
-			app:iconTint="@color/dark"
-			app:layout_constraintBottom_toBottomOf="@+id/img_filter"
-			app:layout_constraintEnd_toStartOf="@+id/img_filter"
-			app:layout_constraintTop_toTopOf="@+id/img_filter"
-			app:strokeWidth="0dp" />
-
-		<com.google.android.material.button.MaterialButton
-			android:id="@+id/img_filter"
-			style="@style/Pokepedia.Button.OutlinedButton.IconOnly"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/_12sdp"
-			android:layout_marginEnd="@dimen/_12sdp"
-			app:cornerRadius="@dimen/_10sdp"
-			app:icon="@drawable/ic_filter"
-			app:iconTint="@color/dark"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintTop_toTopOf="parent"
-			app:strokeWidth="0dp" />
-
-		<androidx.appcompat.widget.AppCompatTextView
-			android:id="@+id/pokedex_title"
-			style="@style/PokepediaTypographyStyles.Heading2"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_marginHorizontal="@dimen/_20sdp"
-			android:layout_marginTop="@dimen/_12sdp"
-			android:text="@string/pokedex"
-			android:textColor="@color/dark"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/img_filter" />
-
-		<androidx.appcompat.widget.AppCompatTextView
-			android:id="@+id/pokedex_subtitle"
-			style="@style/PokepediaTypographyStyles.Body1"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/_4sdp"
-			android:text="@string/search_for_pok_mon_by_name_or_using_the_national_pok_dex_number"
-			android:textColor="@color/gray3"
-			app:layout_constraintEnd_toEndOf="@+id/pokedex_title"
-			app:layout_constraintStart_toStartOf="@+id/pokedex_title"
-			app:layout_constraintTop_toBottomOf="@+id/pokedex_title" />
-
-		<com.kennyc.view.MultiStateView
-			android:id="@+id/msv_pokemon"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginHorizontal="@dimen/_12sdp"
 			android:layout_marginVertical="@dimen/_20sdp"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/pokedex_subtitle"
-			app:msv_animateViewChanges="true"
-			app:msv_loadingView="@layout/layout_loading_state_pokemon"
-			app:msv_viewState="loading"
-			tools:msv_viewState="content">
+			android:clipToPadding="false"
+			android:fadeScrollbars="false"
+			android:paddingHorizontal="@dimen/_8sdp"
+			android:scrollbarStyle="outsideOverlay"
+			android:scrollbarThumbVertical="@drawable/scrollbar"
+			android:scrollbars="vertical"
+			app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+			app:spanCount="2"
+			tools:itemCount="100"
+			tools:listitem="@layout/item_pokemon" />
 
-			<androidx.recyclerview.widget.RecyclerView
-				android:id="@+id/rv_pokemon"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:overScrollMode="never"
-				app:spanCount="2"
-				app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-				tools:listitem="@layout/item_pokemon" />
+	</com.kennyc.view.MultiStateView>
 
-		</com.kennyc.view.MultiStateView>
-
-	</androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

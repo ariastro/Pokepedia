@@ -14,8 +14,8 @@ class GlideModule : AppGlideModule() {
     override fun applyOptions(context: Context, builder: GlideBuilder) {
         super.applyOptions(context, builder)
         val req = RequestOptions()
-            .placeholder(shimmerDrawable)
-            .error(shimmerDrawable)
+//            .placeholder(shimmerDrawable)
+//            .error(shimmerDrawable)
             .format(DecodeFormat.PREFER_ARGB_8888)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         builder.setDefaultRequestOptions(req)

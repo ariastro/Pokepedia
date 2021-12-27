@@ -11,6 +11,6 @@ interface PokepediaService {
     suspend fun getAllPokemons(
         @Query("limit") limit: Int = 20,
         @Query("offset") offset: Int = 0
-    ): ApiResponse<PokemonResponse>
+    ): PokemonResponse
 
 }

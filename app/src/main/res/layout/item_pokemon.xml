@@ -23,8 +23,8 @@
 
 			<androidx.appcompat.widget.AppCompatImageView
 				android:id="@+id/img_pokeball"
-				android:layout_width="@dimen/_100sdp"
-				android:layout_height="@dimen/_100sdp"
+				android:layout_width="@dimen/_95sdp"
+				android:layout_height="@dimen/_85sdp"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
 				app:srcCompat="@drawable/ic_pokeball" />
@@ -39,7 +39,7 @@
 
 			<androidx.appcompat.widget.AppCompatTextView
 				android:id="@+id/tv_pokemon_index"
-				style="@style/PokepediaTypographyStyles.Body1.Bold"
+				style="@style/PokepediaTypographyStyles.Body2.Bold"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginHorizontal="@dimen/_10sdp"
@@ -52,7 +52,7 @@
 
 			<androidx.appcompat.widget.AppCompatTextView
 				android:id="@+id/tv_pokemon_name"
-				style="@style/PokepediaTypographyStyles.Heading5"
+				style="@style/PokepediaTypographyStyles.Subtitle1.Bold"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/_10sdp"
@@ -68,8 +68,8 @@
 
 	<androidx.appcompat.widget.AppCompatImageView
 		android:id="@+id/img_pokemon"
-		android:layout_width="@dimen/_90sdp"
-		android:layout_height="@dimen/_90sdp"
+		android:layout_width="@dimen/_95sdp"
+		android:layout_height="@dimen/_95sdp"
 		android:layout_marginEnd="@dimen/_8sdp"
 		android:elevation="@dimen/_2sdp"
 		app:layout_constraintBottom_toTopOf="@+id/card_pokemon"

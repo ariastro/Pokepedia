@@ -1,16 +1,21 @@
-package io.astronout.pokepedia.ui.home.adapter
+package io.astronout.pokepedia.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.GenericTransitionOptions
 import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.ItemPokemonBinding
 import io.astronout.pokepedia.di.GlideApp
+import io.astronout.pokepedia.domain.model.Pokemon
+import io.astronout.pokepedia.utils.capitalize
 import io.astronout.pokepedia.utils.setCardBackgroundColorResource
+import java.util.*
 
 class PokemonAdapter(private val onClickListener: () -> Unit) :
-    RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
+    PagingDataAdapter<Pokemon, PokemonAdapter.PokemonViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         return PokemonViewHolder(
@@ -23,26 +28,33 @@ class PokemonAdapter(private val onClickListener: () -> Unit) :
     }
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
-        holder.bind()
+        getItem(position)?.let {
+            holder.bind(it)
+        }
     }
-
-    override fun getItemCount() = 10
 
     inner class PokemonViewHolder(private val itemBinding: ItemPokemonBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
-        fun bind() {
+        fun bind(pokemon: Pokemon) {
             with(itemBinding) {
+                cardPokemon.setCardBackgroundColorResource(R.color.background_type_grass)
                 GlideApp.with(itemBinding.root.context)
-                    .load(R.drawable.bulbasaur)
+                    .load(pokemon.image)
                     .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
                     .into(itemBinding.imgPokemon)
-                cardPokemon.setCardBackgroundColorResource(R.color.background_type_grass)
-                tvPokemonIndex.text = "#001"
-                tvPokemonName.text = "Bulbasaur"
+                tvPokemonIndex.text = pokemon.getIdString()
+                tvPokemonName.text = pokemon.name.capitalize()
                 root.setOnClickListener {
                     onClickListener()
                 }
             }
+        }
+    }
+
+    companion object {
+        private val DIFF_CALLBACK = object: DiffUtil.ItemCallback<Pokemon>() {
+            override fun areItemsTheSame(oldItem: Pokemon, newItem: Pokemon) = oldItem.name == newItem.name
+            override fun areContentsTheSame(oldItem: Pokemon, newItem: Pokemon) = oldItem == newItem
         }
     }
 

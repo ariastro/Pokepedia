@@ -28,8 +28,11 @@
         <entry key="..\:/AndroidStudioProjects/Pokedexin/app/src/main/res/layout/layout_loading_state_pokemon.xml" value="0.13333333333333333" />
         <entry key="..\:/AndroidStudioProjects/Pokedexin/app/src/main/res/layout/layout_shimmer_pokemon.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidStudioProjects/Pokedexin/app/src/main/res/layout/layout_shimmer_pokemon2.xml" value="0.11979166666666667" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/scrollbar.xml" value="0.13055555555555556" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/activity_main.xml" value="0.11979166666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_home.xml" value="0.11855670103092783" />
-        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_pokemon.xml" value="0.11666666666666667" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_load_state_footer.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_pokemon.xml" value="0.3333333333333333" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/layout_loading_state_pokemon.xml" value="0.11979166666666667" />
       </map>
     </option>
