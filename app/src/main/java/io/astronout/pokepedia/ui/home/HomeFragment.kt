@@ -3,6 +3,7 @@ package io.astronout.pokepedia.ui.home
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -39,9 +40,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupPokemonList() {
         with(binding) {
+            val footer = LoadStateAdapter { adapter.retry() }
             rvPokemon.adapter = adapter.withLoadStateHeaderAndFooter(
                 header = LoadStateAdapter { adapter.retry() },
-                footer = LoadStateAdapter { adapter.retry() }
+                footer = footer
             )
 
             lifecycleScope.launch {
@@ -55,12 +57,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             collectLatestLifecycleFlow(viewModel.pokemonList, adapter::submitData)
 
-            collectLifecycleFlow(adapter.loadStateFlow) { loadState ->
+            adapter.addLoadStateListener { loadState ->
                 val isListEmpty = loadState.refresh is LoadState.NotLoading && adapter.itemCount == 0
-                // show empty list
 //                showEmptyState(isListEmpty)
+
+                footer.loadState =
+                    loadState.mediator?.refresh?.takeIf { it is LoadState.Error && adapter.itemCount > 0 }
+                        ?: loadState.prepend
                 msvPokemon.viewState = if (loadState.source.refresh is LoadState.Loading) MultiStateView.ViewState.LOADING else MultiStateView.ViewState.CONTENT
-                // Toast on any error, regardless of whether it came from RemoteMediator or PagingSource
+//            binding.tvRetry.isVisible = loadState.mediator?.refresh is LoadState.Error && adapter.itemCount == 0
                 val errorState = loadState.source.append as? LoadState.Error
                     ?: loadState.source.prepend as? LoadState.Error
                     ?: loadState.append as? LoadState.Error
