@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	app:cardBackgroundColor="@color/gray5"
+	app:cardCornerRadius="@dimen/_8sdp"
+	app:cardElevation="0dp">
+
+	<androidx.appcompat.widget.AppCompatEditText
+		android:id="@+id/edt_search"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/_40sdp"
+		android:background="@android:color/transparent"
+		android:drawableStart="@drawable/ic_search"
+		android:drawablePadding="@dimen/_8sdp"
+		android:drawableTint="@color/gray2"
+		android:hint="@string/what_pokemon_are_you_looking_for"
+		android:imeOptions="actionSearch"
+		android:inputType="text"
+		android:paddingHorizontal="@dimen/_12sdp"
+		android:singleLine="true"
+		android:textAppearance="@style/PokepediaTypographyStyles.Body1"
+		android:textColor="@color/dark"
+		android:textColorHint="@color/gray2"
+		tools:text="Bulbasaur" />
+
+</com.google.android.material.card.MaterialCardView>

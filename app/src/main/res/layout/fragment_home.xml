@@ -57,7 +57,7 @@
 		app:strokeWidth="0dp" />
 
 	<androidx.appcompat.widget.AppCompatTextView
-		android:id="@+id/pokedex_title"
+		android:id="@+id/tv_pokedex_title"
 		style="@style/PokepediaTypographyStyles.Heading2"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
@@ -70,16 +70,26 @@
 		app:layout_constraintTop_toBottomOf="@+id/img_filter" />
 
 	<androidx.appcompat.widget.AppCompatTextView
-		android:id="@+id/pokedex_subtitle"
+		android:id="@+id/tv_pokedex_subtitle"
 		style="@style/PokepediaTypographyStyles.Body1"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="@dimen/_4sdp"
 		android:text="@string/search_for_pok_mon_by_name_or_using_the_national_pok_dex_number"
-		android:textColor="@color/gray3"
-		app:layout_constraintEnd_toEndOf="@+id/pokedex_title"
-		app:layout_constraintStart_toStartOf="@+id/pokedex_title"
-		app:layout_constraintTop_toBottomOf="@+id/pokedex_title" />
+		android:textColor="@color/gray2"
+		app:layout_constraintEnd_toEndOf="@+id/tv_pokedex_title"
+		app:layout_constraintStart_toStartOf="@+id/tv_pokedex_title"
+		app:layout_constraintTop_toBottomOf="@+id/tv_pokedex_title" />
+
+	<include
+		android:id="@+id/search_bar"
+		layout="@layout/layout_search"
+		android:layout_marginTop="@dimen/_12sdp"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		app:layout_constraintEnd_toEndOf="@+id/tv_pokedex_title"
+		app:layout_constraintStart_toStartOf="@+id/tv_pokedex_title"
+		app:layout_constraintTop_toBottomOf="@id/tv_pokedex_subtitle"/>
 
 	<com.kennyc.view.MultiStateView
 		android:id="@+id/msv_pokemon"
@@ -87,7 +97,7 @@
 		android:layout_height="wrap_content"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/pokedex_subtitle"
+		app:layout_constraintTop_toBottomOf="@+id/search_bar"
 		app:msv_animateViewChanges="true"
 		app:msv_loadingView="@layout/layout_loading_state_pokemon"
 		app:msv_viewState="loading"
@@ -101,6 +111,7 @@
 			android:clipToPadding="false"
 			android:fadeScrollbars="false"
 			android:paddingHorizontal="@dimen/_8sdp"
+			android:overScrollMode="never"
 			android:scrollbarStyle="outsideOverlay"
 			android:scrollbarThumbVertical="@drawable/scrollbar"
 			android:scrollbars="vertical"
