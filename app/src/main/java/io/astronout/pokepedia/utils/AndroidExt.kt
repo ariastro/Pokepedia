@@ -95,3 +95,5 @@ fun <T> Fragment.collectLifecycleFlow(flow: Flow<T>, collect: suspend (T) -> Uni
         }
     }
 }
+
+fun View.onClick(block: View.OnClickListener) = setOnClickListener(block)

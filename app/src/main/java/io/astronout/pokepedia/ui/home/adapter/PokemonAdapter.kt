@@ -21,7 +21,7 @@ import io.astronout.pokepedia.utils.capitalize
 import io.astronout.pokepedia.utils.getColorResource
 import io.astronout.pokepedia.utils.setCardBackgroundColorResource
 
-class PokemonAdapter(private val onClickListener: () -> Unit) :
+class PokemonAdapter(private val onClickListener: (pokemon: Pokemon) -> Unit) :
     PagingDataAdapter<Pokemon, PokemonAdapter.PokemonViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
@@ -52,7 +52,7 @@ class PokemonAdapter(private val onClickListener: () -> Unit) :
                 tvPokemonName.text = pokemon.name.capitalize()
                 loadImage(pokemon.image)
                 root.setOnClickListener {
-                    onClickListener()
+                    onClickListener(pokemon)
                 }
             }
         }

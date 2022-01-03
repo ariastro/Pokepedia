@@ -3,10 +3,10 @@ package io.astronout.pokepedia.ui.home
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.kennyc.view.MultiStateView
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,7 +15,6 @@ import io.astronout.pokepedia.databinding.FragmentHomeBinding
 import io.astronout.pokepedia.ui.home.adapter.LoadStateAdapter
 import io.astronout.pokepedia.ui.home.adapter.PokemonAdapter
 import io.astronout.pokepedia.utils.collectLatestLifecycleFlow
-import io.astronout.pokepedia.utils.collectLifecycleFlow
 import io.astronout.pokepedia.utils.showToast
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
@@ -28,7 +27,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding: FragmentHomeBinding by viewBinding()
     private val viewModel: HomeViewModel by viewModels()
     private val adapter = PokemonAdapter(onClickListener = {
-
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
     })
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

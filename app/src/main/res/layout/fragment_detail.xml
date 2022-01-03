@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="false"
+	tools:context=".ui.detail.DetailFragment">
+
+	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/app_bar"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/_250sdp"
+		android:elevation="0dp"
+		android:fitsSystemWindows="false"
+		tools:background="@color/background_type_grass">
+
+		<com.google.android.material.appbar.CollapsingToolbarLayout
+			android:id="@+id/collapsing_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:fitsSystemWindows="true"
+			app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+			app:titleEnabled="false"
+			app:toolbarId="@+id/toolbar">
+
+			<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				app:navigationIcon="@drawable/ic_back"
+				app:collapseIcon="@drawable/ic_back"
+				android:layout_height="?attr/actionBarSize"
+				app:layout_collapseMode="pin"/>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				tools:context=".ui.detail.DetailActivity">
+
+				<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/img_pattern"
+					android:layout_width="@dimen/_80sdp"
+					android:layout_height="@dimen/_65sdp"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintHorizontal_bias="1.0"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/img_pokemon"
+					app:srcCompat="@drawable/ic_pattern_2" />
+
+				<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/img_pokemon"
+					android:layout_width="@dimen/_110sdp"
+					android:layout_height="@dimen/_110sdp"
+					android:background="@drawable/ic_circle"
+					android:layout_marginStart="@dimen/_12sdp"
+					android:scaleType="centerCrop"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:srcCompat="@drawable/bulbasaur" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/tv_pokemon_index"
+					style="@style/PokepediaTypographyStyles.Subtitle2.Medium"
+					android:layout_width="0dp"
+					android:layout_marginHorizontal="@dimen/_12sdp"
+					android:layout_height="wrap_content"
+					android:textColor="@color/gray1"
+					app:layout_constraintBottom_toTopOf="@+id/tv_pokemon_name"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toEndOf="@+id/img_pokemon"
+					app:layout_constraintTop_toTopOf="@+id/img_pokemon"
+					app:layout_constraintVertical_chainStyle="packed"
+					tools:text="#001" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/tv_pokemon_name"
+					style="@style/PokepediaTypographyStyles.Heading3"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:textColor="@color/light"
+					app:layout_constraintBottom_toTopOf="@+id/cg_pokemon_type"
+					app:layout_constraintEnd_toEndOf="@+id/tv_pokemon_index"
+					app:layout_constraintStart_toStartOf="@+id/tv_pokemon_index"
+					app:layout_constraintTop_toBottomOf="@+id/tv_pokemon_index"
+					tools:text="Bulbasaur" />
+
+				<com.google.android.material.chip.ChipGroup
+					android:id="@+id/cg_pokemon_type"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					app:layout_constraintBottom_toBottomOf="@+id/img_pokemon"
+					app:layout_constraintEnd_toEndOf="@+id/tv_pokemon_index"
+					app:layout_constraintStart_toStartOf="@+id/tv_pokemon_index"
+					app:layout_constraintTop_toBottomOf="@+id/tv_pokemon_name">
+
+					<com.google.android.material.chip.Chip
+						android:id="@+id/chip1"
+						style="@style/PokepediaTypographyStyles.Body2.Medium"
+						android:layout_width="wrap_content"
+						android:layout_height="@dimen/_35sdp"
+						android:textColor="@color/light"
+						app:chipBackgroundColor="@color/type_grass"
+						app:chipCornerRadius="@dimen/_6sdp"
+						app:chipIcon="@drawable/ic_grass"
+						app:chipIconTint="@color/light"
+						app:textStartPadding="0dp"
+						tools:text="Grass" />
+
+					<com.google.android.material.chip.Chip
+						android:id="@+id/chip2"
+						style="@style/PokepediaTypographyStyles.Body2.Medium"
+						android:layout_width="wrap_content"
+						android:layout_height="@dimen/_35sdp"
+						android:textColor="@color/light"
+						app:chipBackgroundColor="@color/type_poison"
+						app:chipCornerRadius="@dimen/_6sdp"
+						app:chipIcon="@drawable/ic_poison"
+						app:chipIconTint="@color/light"
+						app:textStartPadding="0dp"
+						tools:text="Poison" />
+
+				</com.google.android.material.chip.ChipGroup>
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</com.google.android.material.appbar.CollapsingToolbarLayout>
+
+	</com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

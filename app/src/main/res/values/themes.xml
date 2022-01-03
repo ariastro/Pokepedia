@@ -70,10 +70,10 @@
 	</style>
 
 	<style name="PokepediaTypographyStyles.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+		<item name="android:includeFontPadding">false</item>
 		<item name="fontFamily">@font/sf_pro_display_regular</item>
 		<item name="android:fontFamily">@font/sf_pro_display_regular</item>
 		<item name="android:textSize">@dimen/_14ssp</item>
-		<item name="android:includeFontPadding">false</item>
 	</style>
 
 	<style name="PokepediaTypographyStyles.Subtitle2.Bold" parent="PokepediaTypographyStyles.Subtitle2">
@@ -106,7 +106,7 @@
 	<style name="PokepediaTypographyStyles.Body2" parent="TextAppearance.MaterialComponents.Body2">
 		<item name="fontFamily">@font/sf_pro_display_regular</item>
 		<item name="android:fontFamily">@font/sf_pro_display_regular</item>
-		<item name="android:textSize">@dimen/_10ssp</item>
+		<item name="android:textSize">@dimen/_11ssp</item>
 		<item name="android:includeFontPadding">false</item>
 	</style>
 
