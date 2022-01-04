@@ -82,6 +82,30 @@ fun String.getPokemonId() = this.substringAfter("pokemon").replace("/", "").toIn
 
 fun String.getPokemonImage() = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.getPokemonId()}.png"
 
+fun String.getPokemonTypeBackground(): Int {
+    return when (this) {
+        "bug" -> R.color.background_type_bug
+        "dark" -> R.color.background_type_dark
+        "dragon" -> R.color.background_type_dragon
+        "electric" -> R.color.background_type_electric
+        "fairy" -> R.color.background_type_fairy
+        "fighting" -> R.color.background_type_fighting
+        "fire" -> R.color.background_type_fire
+        "flying" -> R.color.background_type_flying
+        "ghost" -> R.color.background_type_ghost
+        "grass" -> R.color.background_type_grass
+        "ground" -> R.color.background_type_ground
+        "ice" -> R.color.background_type_ice
+        "normal" -> R.color.background_type_normal
+        "poison" -> R.color.background_type_poison
+        "psychic" -> R.color.background_type_psychic
+        "rock" -> R.color.background_type_rock
+        "steel" -> R.color.background_type_steel
+        "water" -> R.color.background_type_water
+        else -> R.color.gray4
+    }
+}
+
 fun <T> Fragment.collectLatestLifecycleFlow(flow: Flow<T>, collect: suspend (T) -> Unit) {
     lifecycleScope.launch {
         repeatOnLifecycle(Lifecycle.State.STARTED) {

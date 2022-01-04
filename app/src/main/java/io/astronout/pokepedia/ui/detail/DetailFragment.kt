@@ -3,11 +3,16 @@ package io.astronout.pokepedia.ui.detail
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.viewbinding.library.fragment.viewBinding
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.FragmentDetailBinding
 import io.astronout.pokepedia.di.GlideApp
+import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.ui.base.BaseFragment
+import io.astronout.pokepedia.ui.detail.adapter.PagerAdapter
 import io.astronout.pokepedia.utils.changeStatusBarColor
 import io.astronout.pokepedia.utils.onClick
 import io.astronout.pokepedia.utils.showToast
@@ -16,16 +21,11 @@ import kotlin.math.abs
 class DetailFragment : BaseFragment(R.layout.fragment_detail) {
 
     private val binding: FragmentDetailBinding by viewBinding()
+    private val args: DetailFragmentArgs by navArgs()
+    private lateinit var pokemon: Pokemon
 
     private var isTheTitleVisible = false
     private var isTheTitleContainerVisible = true
-
-    companion object {
-        const val PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR = 0.6F
-        const val PERCENTAGE_TO_HIDE_TITLE_DETAILS = 0.3F
-        const val ALPHA_ANIMATIONS_DURATION = 200L
-    }
-
 
     override fun initUI() {
         with(binding) {
@@ -34,33 +34,47 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
             appBar.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
                 val maxScroll = appBarLayout.totalScrollRange
                 val percentage = abs(verticalOffset).toFloat() / maxScroll.toFloat()
-
                 handleAlphaOnTitle(percentage)
                 handleToolbarTitleVisibility(percentage)
             }))
-
-            tvPokemonIndex.text = "#001"
-            tvPokemonName.text = "Bulbasaur"
-            GlideApp.with(this@DetailFragment)
-                .load(R.drawable.bulbasaur)
-                .into(imgPokemon)
+            setupViewPager()
         }
     }
 
     override fun initData() {
-        // do nothing
+        with(binding) {
+            pokemon = args.pokemon
+            tvPokemonIndex.text = pokemon.getIdString()
+            tvPokemonName.text = pokemon.name
+            GlideApp.with(this@DetailFragment)
+                .load(pokemon.image)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(imgPokemon)
+        }
     }
 
     override fun initAction() {
         with(binding) {
-            tvPokemonName.onClick {
-                showToast("bulbasaur")
-            }
+
         }
     }
 
     override fun initObserver() {
         // do nothing
+    }
+
+    private fun setupViewPager() {
+        with(binding) {
+            viewPager.adapter = PagerAdapter(this@DetailFragment)
+            viewPager.isUserInputEnabled = false
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                when (position) {
+                    0 -> tab.text = getString(R.string.about)
+                    1 -> tab.text = getString(R.string.stats)
+                    2 -> tab.text = getString(R.string.evolution)
+                }
+            }.attach()
+        }
     }
 
     private fun handleToolbarTitleVisibility(percentage: Float) {
@@ -96,6 +110,12 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
         alphaAnimation.duration = duration
         alphaAnimation.fillAfter = true
         v.startAnimation(alphaAnimation)
+    }
+
+    companion object {
+        const val PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR = 0.4F
+        const val PERCENTAGE_TO_HIDE_TITLE_DETAILS = 0.3F
+        const val ALPHA_ANIMATIONS_DURATION = 200L
     }
 
 }
