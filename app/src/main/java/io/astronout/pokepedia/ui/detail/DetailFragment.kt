@@ -5,6 +5,7 @@ import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.FragmentDetailBinding
 import io.astronout.pokepedia.di.GlideApp
 import io.astronout.pokepedia.ui.base.BaseFragment
+import io.astronout.pokepedia.utils.changeStatusBarColor
 import io.astronout.pokepedia.utils.onClick
 import io.astronout.pokepedia.utils.showToast
 
@@ -19,6 +20,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
             GlideApp.with(this@DetailFragment)
                 .load(R.drawable.bulbasaur)
                 .into(imgPokemon)
+            changeStatusBarColor(R.color.background_type_grass)
         }
     }
 

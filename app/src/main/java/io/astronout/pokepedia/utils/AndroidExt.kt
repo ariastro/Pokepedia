@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
@@ -14,6 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerDrawable
 import com.google.android.material.card.MaterialCardView
+import io.astronout.pokepedia.R
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -97,3 +99,9 @@ fun <T> Fragment.collectLifecycleFlow(flow: Flow<T>, collect: suspend (T) -> Uni
 }
 
 fun View.onClick(block: View.OnClickListener) = setOnClickListener(block)
+
+fun Fragment.changeStatusBarColor(@ColorRes color: Int) {
+    val window = requireActivity().window
+    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+    window.statusBarColor = requireContext().getColorResource(color)
+}

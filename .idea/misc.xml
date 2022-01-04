@@ -30,10 +30,14 @@
         <entry key="..\:/AndroidStudioProjects/Pokedexin/app/src/main/res/layout/layout_shimmer_pokemon2.xml" value="0.11979166666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/ic_back.xml" value="0.12920962199312716" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/ic_circle.xml" value="0.12920962199312716" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/ic_half_rounded.xml" value="0.12920962199312716" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/ic_pattern_2.xml" value="0.12920962199312716" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/ic_pokeball_top.xml" value="0.12920962199312716" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/ic_pokeball_transparent.xml" value="0.12920962199312716" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/scrollbar.xml" value="0.13055555555555556" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/drawable/tab_background_selector.xml" value="0.12920962199312716" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/activity_main.xml" value="0.11979166666666667" />
-        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_detail.xml" value="0.12" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_detail.xml" value="0.14666666666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_home.xml" value="0.14666666666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_load_state_footer.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_pokemon.xml" value="0.14666666666666667" />

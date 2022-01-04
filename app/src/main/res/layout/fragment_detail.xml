@@ -4,16 +4,17 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:fitsSystemWindows="false"
+	android:fitsSystemWindows="true"
+	android:background="@color/background_type_grass"
 	tools:context=".ui.detail.DetailFragment">
 
 	<com.google.android.material.appbar.AppBarLayout
 		android:id="@+id/app_bar"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/_250sdp"
-		android:elevation="0dp"
-		android:fitsSystemWindows="false"
-		tools:background="@color/background_type_grass">
+		android:background="@color/background_type_grass"
+		app:elevation="0dp"
+		android:fitsSystemWindows="false">
 
 		<com.google.android.material.appbar.CollapsingToolbarLayout
 			android:id="@+id/collapsing_toolbar"
@@ -21,16 +22,9 @@
 			android:layout_height="match_parent"
 			android:fitsSystemWindows="true"
 			app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+			app:title="Bulbasaur"
 			app:titleEnabled="false"
 			app:toolbarId="@+id/toolbar">
-
-			<androidx.appcompat.widget.Toolbar
-				android:id="@+id/toolbar"
-				android:layout_width="match_parent"
-				app:navigationIcon="@drawable/ic_back"
-				app:collapseIcon="@drawable/ic_back"
-				android:layout_height="?attr/actionBarSize"
-				app:layout_collapseMode="pin"/>
 
 			<androidx.constraintlayout.widget.ConstraintLayout
 				android:layout_width="match_parent"
@@ -49,11 +43,12 @@
 
 				<androidx.appcompat.widget.AppCompatImageView
 					android:id="@+id/img_pokemon"
-					android:layout_width="@dimen/_110sdp"
-					android:layout_height="@dimen/_110sdp"
-					android:background="@drawable/ic_circle"
+					android:layout_width="@dimen/_100sdp"
+					android:layout_height="@dimen/_100sdp"
 					android:layout_marginStart="@dimen/_12sdp"
+					android:background="@drawable/ic_circle"
 					android:scaleType="centerCrop"
+					app:layout_constraintVertical_bias="0.35"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="parent"
@@ -64,8 +59,8 @@
 					android:id="@+id/tv_pokemon_index"
 					style="@style/PokepediaTypographyStyles.Subtitle2.Medium"
 					android:layout_width="0dp"
-					android:layout_marginHorizontal="@dimen/_12sdp"
 					android:layout_height="wrap_content"
+					android:layout_marginHorizontal="@dimen/_12sdp"
 					android:textColor="@color/gray1"
 					app:layout_constraintBottom_toTopOf="@+id/tv_pokemon_name"
 					app:layout_constraintEnd_toEndOf="parent"
@@ -101,33 +96,98 @@
 						style="@style/PokepediaTypographyStyles.Body2.Medium"
 						android:layout_width="wrap_content"
 						android:layout_height="@dimen/_35sdp"
+						android:text="Grass"
 						android:textColor="@color/light"
 						app:chipBackgroundColor="@color/type_grass"
 						app:chipCornerRadius="@dimen/_6sdp"
 						app:chipIcon="@drawable/ic_grass"
 						app:chipIconTint="@color/light"
-						app:textStartPadding="0dp"
-						tools:text="Grass" />
+						app:textStartPadding="0dp" />
 
 					<com.google.android.material.chip.Chip
 						android:id="@+id/chip2"
 						style="@style/PokepediaTypographyStyles.Body2.Medium"
 						android:layout_width="wrap_content"
 						android:layout_height="@dimen/_35sdp"
+						android:text="Poison"
 						android:textColor="@color/light"
 						app:chipBackgroundColor="@color/type_poison"
 						app:chipCornerRadius="@dimen/_6sdp"
 						app:chipIcon="@drawable/ic_poison"
 						app:chipIconTint="@color/light"
-						app:textStartPadding="0dp"
-						tools:text="Poison" />
+						app:textStartPadding="0dp" />
 
 				</com.google.android.material.chip.ChipGroup>
 
 			</androidx.constraintlayout.widget.ConstraintLayout>
 
+			<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				android:layout_gravity="top"
+				android:layout_marginBottom="?attr/actionBarSize"
+				app:collapseIcon="@drawable/ic_back"
+				app:layout_collapseMode="pin"
+				app:navigationIcon="@drawable/ic_back" />
+
+			<com.google.android.material.tabs.TabLayout
+				android:id="@+id/tab_layout"
+				style="@style/Pokepedia.AppTabLayout"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/_48sdp"
+				app:tabBackground="@drawable/tab_background_selector"
+				android:layout_gravity="bottom">
+
+				<com.google.android.material.tabs.TabItem
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/about" />
+
+				<com.google.android.material.tabs.TabItem
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/stats" />
+
+				<com.google.android.material.tabs.TabItem
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/evolution" />
+
+			</com.google.android.material.tabs.TabLayout>
+
 		</com.google.android.material.appbar.CollapsingToolbarLayout>
 
 	</com.google.android.material.appbar.AppBarLayout>
+
+	<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@drawable/ic_half_rounded"
+		app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:padding="@dimen/_20sdp">
+
+			<androidx.appcompat.widget.AppCompatTextView
+				style="@style/PokepediaTypographyStyles.Subtitle2"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend finibus feugiat. Curabitur ligula eros, blandit id blandit faucibus, feugiat ac neque. Maecenas sodales sed urna eget porta. Mauris iaculis a urna sit amet dapibus. Integer at congue elit. Donec id pretium tellus, non consectetur purus. Nulla non est ut nisl dignissim ultrices. Nullam turpis dui, malesuada nec volutpat quis, laoreet in risus. Nunc quis elementum justo. Suspendisse porttitor pulvinar luctus.
+
+Proin euismod, eros et rhoncus consequat, quam est gravida mi, posuere euismod libero orci vel risus. Fusce aliquam, nisl sed feugiat blandit, justo orci feugiat est, id varius odio turpis interdum metus. Phasellus mattis felis sed velit aliquam dictum. Vivamus bibendum pellentesque lacus. Pellentesque sodales, arcu id eleifend dapibus, velit orci dignissim orci, ut accumsan ex felis sed massa. Phasellus eu nunc id quam rutrum finibus. Quisque egestas justo at mi rutrum, vel vestibulum dui feugiat. Vestibulum facilisis efficitur euismod. Praesent placerat nunc nec pulvinar mattis. Duis ultricies consequat dui eu malesuada. Proin et ligula facilisis, imperdiet velit in, dapibus leo. Curabitur commodo erat id libero commodo blandit. Nam in libero et arcu mollis mollis sit amet a velit. Sed vitae turpis justo.
+
+Sed tristique, lectus sit amet ullamcorper efficitur, leo velit lobortis tortor, et rhoncus urna turpis et velit. Vestibulum consequat justo leo, at pharetra mi cursus at. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ornare aliquam ante, eget molestie massa accumsan ac. Phasellus ac egestas elit, vel tincidunt magna. Pellentesque maximus augue sit amet mi ultrices imperdiet. Praesent finibus tortor at justo pretium, fringilla ullamcorper libero hendrerit. Etiam pellentesque non quam in interdum. Donec turpis leo, posuere vel leo at, malesuada ultricies sem. Nullam eget est ligula. Pellentesque mollis, leo vel aliquet lobortis, sapien metus varius nunc, a consectetur eros tellus in est. Maecenas feugiat, mi eget dignissim dapibus, mi nunc volutpat felis, ut suscipit nisi massa ac libero."
+				android:textColor="@color/gray3"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

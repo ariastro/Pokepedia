@@ -43,7 +43,7 @@
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginHorizontal="@dimen/_10sdp"
-				android:textColor="@color/light_transparent"
+				android:textColor="@color/light_transparent_70"
 				app:layout_constraintBottom_toTopOf="@+id/tv_pokemon_name"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent"

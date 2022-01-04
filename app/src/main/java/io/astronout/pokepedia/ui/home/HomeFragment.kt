@@ -11,6 +11,7 @@ import io.astronout.pokepedia.databinding.FragmentHomeBinding
 import io.astronout.pokepedia.ui.base.BaseFragment
 import io.astronout.pokepedia.ui.home.adapter.LoadStateAdapter
 import io.astronout.pokepedia.ui.home.adapter.PokemonAdapter
+import io.astronout.pokepedia.utils.changeStatusBarColor
 import io.astronout.pokepedia.utils.collectLatestLifecycleFlow
 import io.astronout.pokepedia.utils.showToast
 import kotlinx.coroutines.flow.collectLatest
@@ -31,7 +32,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     }
 
     override fun initUI() {
-        // do nothing
+        changeStatusBarColor(R.color.colorPrimary)
     }
 
     override fun initAction() {
