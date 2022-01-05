@@ -63,7 +63,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginHorizontal="@dimen/_20sdp"
 		android:layout_marginTop="@dimen/_12sdp"
-		android:text="@string/pokedex"
+		android:text="@string/pokepedia"
 		android:textColor="@color/dark"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"

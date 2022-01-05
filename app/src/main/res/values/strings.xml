@@ -10,4 +10,9 @@
 	<string name="about">About</string>
 	<string name="stats">Stats</string>
 	<string name="evolution">Evolution</string>
+	<string name="pokedex_data">Pokédex Data</string>
+	<string name="species">Species</string>
+	<string name="height">Height</string>
+	<string name="weight">Weight</string>
+	<string name="abilities">Abilities</string>
 </resources>

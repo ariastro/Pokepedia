@@ -16,6 +16,7 @@ import io.astronout.pokepedia.di.GlideApp
 import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.ui.base.BaseFragment
 import io.astronout.pokepedia.ui.detail.adapter.PagerAdapter
+import io.astronout.pokepedia.ui.detail.viewmodel.DetailViewModel
 import io.astronout.pokepedia.utils.*
 import io.astronout.pokepedia.vo.Resource
 import kotlin.math.abs
