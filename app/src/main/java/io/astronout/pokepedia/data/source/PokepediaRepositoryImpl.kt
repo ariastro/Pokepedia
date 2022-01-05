@@ -3,15 +3,25 @@ package io.astronout.pokepedia.data.source
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.skydoves.sandwich.message
+import com.skydoves.sandwich.suspendOnError
+import com.skydoves.sandwich.suspendOnException
+import com.skydoves.sandwich.suspendOnSuccess
 import io.astronout.pokepedia.data.source.remote.RemoteDataSource
 import io.astronout.pokepedia.data.source.remote.paging.PokepediaPagingSource
 import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.domain.repository.PokepediaRepository
+import io.astronout.pokepedia.vo.Resource
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 class PokepediaRepositoryImpl @Inject constructor(
-    private val remoteDataSource: RemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val ioDispatcher: CoroutineDispatcher
 ) : PokepediaRepository {
 
     override fun getAllPokemons(): Flow<PagingData<Pokemon>> {
@@ -22,6 +32,19 @@ class PokepediaRepositoryImpl @Inject constructor(
             }
         ).flow
     }
+
+    override fun getPokemonDetails(id: Int): Flow<Resource<Pokemon>> = flow {
+        emit(Resource.Loading())
+        remoteDataSource.getPokemonDetails(id).let {
+            it.suspendOnSuccess {
+                emit(Resource.Success(data.toPokemon()))
+            }.suspendOnError {
+                emit(Resource.Error<Pokemon>(message()))
+            }.suspendOnException {
+                emit(Resource.Error<Pokemon>(message))
+            }
+        }
+    }.flowOn(ioDispatcher)
 
     companion object {
         const val STARTING_OFFSET_INDEX = 0

@@ -22,7 +22,6 @@
 			android:layout_height="match_parent"
 			android:fitsSystemWindows="true"
 			app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-			app:title="Bulbasaur"
 			app:titleEnabled="false"
 			app:toolbarId="@+id/toolbar">
 
@@ -39,6 +38,23 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				tools:context=".ui.detail.DetailActivity">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/tv_pokemon_name_banner"
+					style="@style/PokepediaTypographyStyles.Heading1"
+					android:layout_width="0dp"
+					android:maxLines="1"
+					android:gravity="center"
+					app:textAllCaps="true"
+					android:layout_height="wrap_content"
+					android:shadowColor="@color/light_transparent_35"
+					android:shadowRadius="8"
+					android:layout_marginTop="@dimen/_12sdp"
+					tools:textColor="@color/background_type_grass"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:text="BULBASAUR" />
 
 				<androidx.appcompat.widget.AppCompatImageView
 					android:id="@+id/img_pokemon"
@@ -83,39 +99,10 @@
 					android:id="@+id/cg_pokemon_type"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:orientation="vertical"
 					app:layout_constraintBottom_toBottomOf="@+id/img_pokemon"
 					app:layout_constraintEnd_toEndOf="@+id/tv_pokemon_index"
 					app:layout_constraintStart_toStartOf="@+id/tv_pokemon_index"
-					app:layout_constraintTop_toBottomOf="@+id/tv_pokemon_name">
-
-					<com.google.android.material.chip.Chip
-						android:id="@+id/chip1"
-						style="@style/PokepediaTypographyStyles.Body2.Medium"
-						android:layout_width="wrap_content"
-						android:layout_height="@dimen/_35sdp"
-						android:text="Grass"
-						android:textColor="@color/light"
-						app:chipBackgroundColor="@color/type_grass"
-						app:chipCornerRadius="@dimen/_6sdp"
-						app:chipIcon="@drawable/ic_grass"
-						app:chipIconTint="@color/light"
-						app:textStartPadding="0dp" />
-
-					<com.google.android.material.chip.Chip
-						android:id="@+id/chip2"
-						style="@style/PokepediaTypographyStyles.Body2.Medium"
-						android:layout_width="wrap_content"
-						android:layout_height="@dimen/_35sdp"
-						android:text="Poison"
-						android:textColor="@color/light"
-						app:chipBackgroundColor="@color/type_poison"
-						app:chipCornerRadius="@dimen/_6sdp"
-						app:chipIcon="@drawable/ic_poison"
-						app:chipIconTint="@color/light"
-						app:textStartPadding="0dp" />
-
-				</com.google.android.material.chip.ChipGroup>
+					app:layout_constraintTop_toBottomOf="@+id/tv_pokemon_name"/>
 
 			</androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -136,7 +123,7 @@
 					android:layout_height="match_parent"
 					android:gravity="center_vertical"
 					android:layout_gravity="center"
-					android:text="Bulbasaur"
+					tools:text="Bulbasaur"
 					android:textColor="@color/light" />
 
 			</androidx.appcompat.widget.Toolbar>

@@ -59,6 +59,6 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providePokepediaRepository(remoteDataSource: RemoteDataSource): PokepediaRepository = PokepediaRepositoryImpl(remoteDataSource)
+    fun providePokepediaRepository(remoteDataSource: RemoteDataSource, ioDispatcher: CoroutineDispatcher): PokepediaRepository = PokepediaRepositoryImpl(remoteDataSource, ioDispatcher)
 
 }

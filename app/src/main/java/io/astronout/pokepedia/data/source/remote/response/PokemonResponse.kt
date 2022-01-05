@@ -24,7 +24,7 @@ data class PokemonResponse(
             return Pokemon(
                 id = url.getPokemonId(),
                 name = name,
-                image = url.getPokemonImage()
+                image = url.getPokemonId().getPokemonImage()
             )
         }
     }

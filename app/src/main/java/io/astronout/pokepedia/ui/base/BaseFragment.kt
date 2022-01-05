@@ -17,9 +17,9 @@ abstract class BaseFragment(@LayoutRes layoutId: Int): Fragment(layoutId) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initData()
         initUI()
         initAction()
+        initData()
         initObserver()
 
     }

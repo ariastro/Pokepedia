@@ -8,6 +8,7 @@
 	<color name="light">#FFFFFFFF</color>
 	<color name="light_transparent_70">#B3FFFFFF</color>
 	<color name="light_transparent_50">#80FFFFFF</color>
+	<color name="light_transparent_35">#59FFFFFF</color>
 
 	<color name="gray1">#9917171B</color>
 	<color name="gray2">#747476</color>

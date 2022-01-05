@@ -14,7 +14,7 @@
 		<item name="fontFamily">@font/sf_pro_display_bold</item>
 		<item name="android:fontFamily">@font/sf_pro_display_bold</item>
 		<item name="android:includeFontPadding">false</item>
-		<item name="android:textSize">@dimen/_40ssp</item>
+		<item name="android:textSize">@dimen/_80ssp</item>
 	</style>
 
 	<style name="PokepediaTypographyStyles.Heading2" parent="TextAppearance.MaterialComponents.Headline2">
@@ -149,6 +149,12 @@
 		<item name="tabMaxWidth">0dp</item>
 		<item name="tabGravity">fill</item>
 		<item name="tabMode">fixed</item>
+	</style>
+
+	<style name="Pokepedia.Chip" parent="@style/Widget.MaterialComponents.Chip.Action">
+		<item name="chipCornerRadius">@dimen/_6sdp</item>
+		<item name="chipMinTouchTargetSize">0dp</item>
+		<item name="chipMinHeight">@dimen/_25sdp</item>
 	</style>
 
 </resources>
