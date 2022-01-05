@@ -4,6 +4,8 @@ import android.view.View
 import android.view.animation.AlphaAnimation
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.google.android.material.appbar.AppBarLayout
@@ -23,6 +25,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
     private val binding: FragmentDetailBinding by viewBinding()
     private val viewModel: DetailViewModel by viewModels()
     private val args: DetailFragmentArgs by navArgs()
+    private val navController: NavController? by lazy { findNavController() }
 
     private var isTheTitleVisible = false
     private var isTheTitleContainerVisible = true
@@ -46,7 +49,9 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
 
     override fun initAction() {
         with(binding) {
-
+            toolbar.setNavigationOnClickListener {
+                navController?.navigateUp()
+            }
         }
     }
 
@@ -59,14 +64,14 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
                 is Resource.Loading -> showToast("Loading")
                 is Resource.Success -> {
                     it.data?.let { pokemon ->
-                        updateData(pokemon)
+                        showData(pokemon)
                     }
                 }
             }
         }
     }
 
-    private fun updateData(pokemon: Pokemon) {
+    private fun showData(pokemon: Pokemon) {
         with(binding) {
             tvPokemonIndex.text = pokemon.getIdString()
             tvPokemonName.text = pokemon.name.capitalize()
@@ -94,7 +99,6 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
     private fun setupViewPager() {
         with(binding) {
             viewPager.adapter = PagerAdapter(this@DetailFragment)
-            viewPager.isUserInputEnabled = false
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
                 when (position) {
                     0 -> tab.text = getString(R.string.about)
