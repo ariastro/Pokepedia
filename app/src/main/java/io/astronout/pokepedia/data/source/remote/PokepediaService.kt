@@ -18,4 +18,7 @@ interface PokepediaService {
     @GET("pokemon/{id}")
     suspend fun getPokemonDetails(@Path("id") id: Int): ApiResponse<PokemonDetailResponse>
 
+    @GET("pokemon-species/{id}")
+    suspend fun getPokemonSpecies(@Path("id") id: Int): ApiResponse<PokemonDetailResponse>
+
 }
