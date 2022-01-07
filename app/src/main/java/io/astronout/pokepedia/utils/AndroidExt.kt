@@ -4,6 +4,9 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
@@ -202,4 +205,15 @@ fun ChipGroup.addChip(label: String) {
         chipBackgroundColor = context.getColorStateListResource(label.getPokemonTypeColor())
         addView(this)
     }
+}
+
+fun Context.getColoredString(text: CharSequence, @ColorRes colorId: Int): Spannable {
+    val spannable = SpannableString(text)
+    spannable.setSpan(
+        ForegroundColorSpan(getColorResource(colorId)),
+        0,
+        spannable.length,
+        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+    )
+    return spannable
 }

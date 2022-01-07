@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:padding="@dimen/_20sdp"
 	tools:context=".ui.detail.StatsFragment">
 
-	<!-- TODO: Update blank fragment layout -->
-	<TextView
+	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:text="@string/hello_blank_fragment" />
+		android:layout_height="match_parent">
 
-</FrameLayout>
+		<TextView
+			android:id="@+id/tv_base_stats"
+			style="@style/PokepediaTypographyStyles.Subtitle2.Bold"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="@string/base_stats"
+			android:textColor="@color/type_grass"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<com.kennyc.view.MultiStateView
+			android:id="@+id/msv_pokemon_stats"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/tv_base_stats"
+			app:msv_animateViewChanges="true"
+			app:msv_viewState="content">
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/rv_pokemon_stats"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/_8sdp"
+				android:overScrollMode="never"
+				android:nestedScrollingEnabled="true"
+				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+				tools:listitem="@layout/item_pokemon_stats" />
+
+		</com.kennyc.view.MultiStateView>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

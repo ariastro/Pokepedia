@@ -138,4 +138,7 @@ dependencies {
 
     // palette
     implementation "androidx.palette:palette-ktx:$paletteVersion"
+
+    // progressView
+    implementation "com.github.skydoves:progressview:$progressViewVersion"
 }

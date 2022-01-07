@@ -62,7 +62,7 @@ data class PokemonDetailResponse(
             name = name,
             image = id.getPokemonImage(),
             abilities = abilities.map {
-                Pokemon.Ability(
+                Pokemon.Abilities(
                     name = it.ability.name,
                     isHidden = it.isHidden,
                     slot = it.slot
@@ -72,14 +72,14 @@ data class PokemonDetailResponse(
             height = height,
             weight = weight,
             stats = stats.map {
-                Pokemon.Stat(
+                Pokemon.Stats(
                     baseStat = it.baseStat,
                     effort = it.effort,
                     name = it.stat.name
                 )
             },
             types = types.map {
-                Pokemon.Type(
+                Pokemon.Types(
                     slot = it.slot,
                     name = it.type.name
                 )

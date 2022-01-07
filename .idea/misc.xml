@@ -42,10 +42,13 @@
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/activity_main.xml" value="0.11979166666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_about.xml" value="0.14666666666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_detail.xml" value="0.12" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_evolution.xml" value="0.11979166666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_home.xml" value="0.10666666666666667" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/fragment_stats.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_load_state_footer.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_pokemon.xml" value="0.14666666666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_pokemon2.xml" value="0.11979166666666667" />
+        <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/item_pokemon_stats.xml" value="0.14666666666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/layout_loading_state_pokemon.xml" value="0.11979166666666667" />
         <entry key="..\:/AndroidStudioProjects/Pokepedia/app/src/main/res/layout/layout_search.xml" value="0.16666666666666666" />
       </map>

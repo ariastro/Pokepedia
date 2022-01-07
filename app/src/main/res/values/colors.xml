@@ -53,5 +53,9 @@
 	<color name="type_rock">#BAAB82</color>
 	<color name="type_steel">#417D9A</color>
 	<color name="type_water">#4A90DA</color>
+	
+	<color name="height_short">#FFC5E6</color>
+	<color name="height_medium">#AEBFD7</color>
+	<color name="height_tall">#AAACB8</color>
 
 </resources>
