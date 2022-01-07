@@ -3,6 +3,7 @@ package io.astronout.pokepedia.ui.home
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.kennyc.view.MultiStateView
@@ -23,8 +24,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private val binding: FragmentHomeBinding by viewBinding()
     private val viewModel: HomeViewModel by viewModels()
+    private val navController: NavController? by lazy { findNavController() }
+
     private val adapter = PokemonAdapter(onClickListener = {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
+        navController?.navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
     })
 
     override fun initData() {
@@ -32,7 +35,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     }
 
     override fun initUI() {
-        changeStatusBarColor(R.color.colorPrimary)
+        changeStatusBarColor(R.color.light)
     }
 
     override fun initAction() {

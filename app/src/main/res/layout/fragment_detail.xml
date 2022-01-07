@@ -12,9 +12,9 @@
 		android:id="@+id/app_bar"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/_250sdp"
-		tools:background="@color/background_type_grass"
+		android:fitsSystemWindows="false"
 		app:elevation="0dp"
-		android:fitsSystemWindows="false">
+		tools:background="@color/background_type_grass">
 
 		<com.google.android.material.appbar.CollapsingToolbarLayout
 			android:id="@+id/collapsing_toolbar"
@@ -43,18 +43,18 @@
 					android:id="@+id/tv_pokemon_name_banner"
 					style="@style/PokepediaTypographyStyles.Heading1"
 					android:layout_width="0dp"
-					android:maxLines="1"
-					android:gravity="center"
-					app:textAllCaps="true"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/_12sdp"
+					android:gravity="center"
+					android:maxLines="1"
 					android:shadowColor="@color/light_transparent_35"
 					android:shadowRadius="8"
-					android:layout_marginTop="@dimen/_12sdp"
-					tools:textColor="@color/background_type_grass"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toTopOf="parent"
-					tools:text="BULBASAUR" />
+					app:textAllCaps="true"
+					tools:text="BULBASAUR"
+					tools:textColor="@color/background_type_grass" />
 
 				<androidx.appcompat.widget.AppCompatImageView
 					android:id="@+id/img_pokemon"
@@ -102,7 +102,7 @@
 					app:layout_constraintBottom_toBottomOf="@+id/img_pokemon"
 					app:layout_constraintEnd_toEndOf="@+id/tv_pokemon_index"
 					app:layout_constraintStart_toStartOf="@+id/tv_pokemon_index"
-					app:layout_constraintTop_toBottomOf="@+id/tv_pokemon_name"/>
+					app:layout_constraintTop_toBottomOf="@+id/tv_pokemon_name" />
 
 			</androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -114,17 +114,17 @@
 				android:layout_marginBottom="?attr/actionBarSize"
 				app:collapseIcon="@drawable/ic_back"
 				app:layout_collapseMode="pin"
-				app:navigationIcon="@drawable/ic_back" >
+				app:navigationIcon="@drawable/ic_back">
 
 				<TextView
 					android:id="@+id/tv_toolbar_title"
-					android:textAppearance="@style/PokepediaTypographyStyles.Heading6"
 					android:layout_width="wrap_content"
 					android:layout_height="match_parent"
-					android:gravity="center_vertical"
 					android:layout_gravity="center"
-					tools:text="Bulbasaur"
-					android:textColor="@color/light" />
+					android:gravity="center_vertical"
+					android:textAppearance="@style/PokepediaTypographyStyles.Heading6"
+					android:textColor="@color/light"
+					tools:text="Bulbasaur" />
 
 			</androidx.appcompat.widget.Toolbar>
 
@@ -133,8 +133,8 @@
 				style="@style/Pokepedia.AppTabLayout"
 				android:layout_width="match_parent"
 				android:layout_height="@dimen/_45sdp"
-				app:tabBackground="@drawable/tab_background_selector"
-				android:layout_gravity="bottom">
+				android:layout_gravity="bottom"
+				app:tabBackground="@drawable/tab_background_selector">
 
 				<com.google.android.material.tabs.TabItem
 					android:layout_width="wrap_content"
@@ -161,6 +161,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:background="@drawable/ic_half_rounded"
+		android:overScrollMode="never"
 		app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
 		<androidx.viewpager2.widget.ViewPager2

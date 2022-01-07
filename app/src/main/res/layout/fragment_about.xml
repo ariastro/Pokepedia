@@ -6,6 +6,7 @@
 	android:layout_height="match_parent"
 	app:msv_animateViewChanges="true"
 	app:msv_viewState="content"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 	tools:context=".ui.detail.AboutFragment">
 
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -53,7 +54,7 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="@dimen/_40sdp"
+			android:layout_marginStart="@dimen/_55sdp"
 			android:text="Seed Pokémon"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="parent"
@@ -125,6 +126,216 @@
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
 			app:layout_constraintTop_toTopOf="@+id/tv_abilities_label" />
+
+		<TextView
+			android:id="@+id/tv_training"
+			style="@style/PokepediaTypographyStyles.Subtitle2.Bold"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_16sdp"
+			android:text="@string/training"
+			android:textColor="@color/type_grass"
+			app:layout_constraintEnd_toEndOf="@+id/tv_flavor_text"
+			app:layout_constraintStart_toStartOf="@+id/tv_flavor_text"
+			app:layout_constraintTop_toBottomOf="@+id/tv_abilities" />
+
+		<TextView
+			android:id="@+id/tv_catch_rate_label"
+			style="@style/PokepediaTypographyStyles.Body1.Medium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_16sdp"
+			android:text="@string/catch_rate"
+			android:textColor="@color/dark"
+			app:layout_constraintStart_toStartOf="@+id/tv_training"
+			app:layout_constraintTop_toBottomOf="@+id/tv_training" />
+
+		<TextView
+			android:id="@+id/tv_catch_rate"
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="45%"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_catch_rate_label" />
+
+		<TextView
+			android:id="@+id/tv_base_friendship_label"
+			style="@style/PokepediaTypographyStyles.Body1.Medium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_12sdp"
+			android:text="@string/base_friendship"
+			android:textColor="@color/dark"
+			app:layout_constraintStart_toStartOf="@+id/tv_training"
+			app:layout_constraintTop_toBottomOf="@+id/tv_catch_rate_label" />
+
+		<TextView
+			android:id="@+id/tv_base_friendship"
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="70"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_base_friendship_label" />
+
+		<TextView
+			android:id="@+id/tv_base_experience_label"
+			style="@style/PokepediaTypographyStyles.Body1.Medium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_12sdp"
+			android:text="@string/base_exp"
+			android:textColor="@color/dark"
+			app:layout_constraintStart_toStartOf="@+id/tv_training"
+			app:layout_constraintTop_toBottomOf="@+id/tv_base_friendship_label" />
+
+		<TextView
+			android:id="@+id/tv_base_experience"
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="64"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_base_experience_label" />
+
+		<TextView
+			android:id="@+id/tv_growth_rate_label"
+			style="@style/PokepediaTypographyStyles.Body1.Medium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_12sdp"
+			android:text="@string/growth_rate"
+			android:textColor="@color/dark"
+			app:layout_constraintStart_toStartOf="@+id/tv_training"
+			app:layout_constraintTop_toBottomOf="@+id/tv_base_experience_label" />
+
+		<TextView
+			android:id="@+id/tv_growth_rate"
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="Medium Slow"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_growth_rate_label" />
+
+		<TextView
+			android:id="@+id/tv_habitat_label"
+			style="@style/PokepediaTypographyStyles.Body1.Medium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_12sdp"
+			android:text="@string/habitat"
+			android:textColor="@color/dark"
+			app:layout_constraintStart_toStartOf="@+id/tv_training"
+			app:layout_constraintTop_toBottomOf="@+id/tv_growth_rate_label" />
+
+		<TextView
+			android:id="@+id/tv_habitat"
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="Grassland"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_habitat_label" />
+
+		<TextView
+			android:id="@+id/tv_breeding"
+			style="@style/PokepediaTypographyStyles.Subtitle2.Bold"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_16sdp"
+			android:text="@string/breeding"
+			android:textColor="@color/type_grass"
+			app:layout_constraintEnd_toEndOf="@+id/tv_flavor_text"
+			app:layout_constraintStart_toStartOf="@+id/tv_flavor_text"
+			app:layout_constraintTop_toBottomOf="@+id/tv_habitat" />
+
+		<TextView
+			android:id="@+id/tv_gender_label"
+			style="@style/PokepediaTypographyStyles.Body1.Medium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_16sdp"
+			android:text="@string/gender"
+			android:textColor="@color/dark"
+			app:layout_constraintStart_toStartOf="@+id/tv_training"
+			app:layout_constraintTop_toBottomOf="@+id/tv_breeding" />
+
+		<TextView
+			android:id="@+id/tv_gender"
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="♀ 87.5%, ♂ 12.5%"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_gender_label" />
+
+		<TextView
+			android:id="@+id/tv_egg_group_label"
+			style="@style/PokepediaTypographyStyles.Body1.Medium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_12sdp"
+			android:text="Egg Groups"
+			android:textColor="@color/dark"
+			app:layout_constraintStart_toStartOf="@+id/tv_training"
+			app:layout_constraintTop_toBottomOf="@+id/tv_gender_label" />
+
+		<TextView
+			android:id="@+id/tv_egg_group"
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="Grass, Monster"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_egg_group_label" />
+
+		<TextView
+			android:id="@+id/tv_egg_cycles_label"
+			style="@style/PokepediaTypographyStyles.Body1.Medium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/_12sdp"
+			android:text="@string/egg_cycles"
+			android:textColor="@color/dark"
+			app:layout_constraintStart_toStartOf="@+id/tv_training"
+			app:layout_constraintTop_toBottomOf="@+id/tv_egg_group_label" />
+
+		<TextView
+			android:id="@+id/tv_egg_cycles"
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="20"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_egg_cycles_label" />
+
+		<TextView
+			style="@style/PokepediaTypographyStyles.Body1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="20"
+			android:textColor="@color/gray2"
+			app:layout_constraintEnd_toEndOf="@+id/tv_species"
+			app:layout_constraintStart_toStartOf="@+id/tv_species"
+			app:layout_constraintTop_toTopOf="@+id/tv_egg_cycles_label" />
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 

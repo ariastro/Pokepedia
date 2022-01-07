@@ -45,15 +45,6 @@ fun Fragment.showToast(message: String) {
     Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 }
 
-fun Fragment.delayJob(
-    durationInMillis: Long,
-    dispatcher: CoroutineDispatcher = Dispatchers.Main,
-    block: () -> Unit
-) = CoroutineScope(dispatcher).launch {
-    delay(durationInMillis)
-    block()
-}
-
 fun wait(delay: Long = 300, action: () -> Unit) =
     Handler(Looper.getMainLooper()).postDelayed(action, delay)
 
