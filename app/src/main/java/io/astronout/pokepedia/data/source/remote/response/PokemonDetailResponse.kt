@@ -3,8 +3,11 @@ package io.astronout.pokepedia.data.source.remote.response
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import io.astronout.pokepedia.R
 import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.utils.getPokemonImage
+import io.astronout.pokepedia.utils.getPokemonTypeColor
+import io.astronout.pokepedia.utils.setTextColorResource
 
 @JsonClass(generateAdapter = true)
 data class PokemonDetailResponse(
@@ -75,7 +78,10 @@ data class PokemonDetailResponse(
                 Pokemon.Stats(
                     baseStat = it.baseStat,
                     effort = it.effort,
-                    name = it.stat.name
+                    name = it.stat.name,
+                    color = types.firstOrNull()?.let { type ->
+                        type.type.name.getPokemonTypeColor()
+                    } ?: R.color.gray4
                 )
             },
             types = types.map {

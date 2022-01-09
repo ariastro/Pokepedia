@@ -17,10 +17,10 @@
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:text="@string/base_stats"
-			android:textColor="@color/type_grass"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
+			app:layout_constraintTop_toTopOf="parent"
+			tools:textColor="@color/type_grass" />
 
 		<com.kennyc.view.MultiStateView
 			android:id="@+id/msv_pokemon_stats"
@@ -37,8 +37,8 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginVertical="@dimen/_8sdp"
-				android:overScrollMode="never"
 				android:nestedScrollingEnabled="true"
+				android:overScrollMode="never"
 				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 				tools:listitem="@layout/item_pokemon_stats" />
 

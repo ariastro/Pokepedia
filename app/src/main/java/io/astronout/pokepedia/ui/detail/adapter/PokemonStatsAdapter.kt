@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.astronout.pokepedia.databinding.ItemPokemonStatsBinding
 import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.utils.capitalize
+import io.astronout.pokepedia.utils.getColorResource
 
 class PokemonStatsAdapter : ListAdapter<Pokemon.Stats, PokemonStatsAdapter.PokemonViewHolder>(DIFF_CALLBACK) {
 
@@ -32,6 +33,7 @@ class PokemonStatsAdapter : ListAdapter<Pokemon.Stats, PokemonStatsAdapter.Pokem
                 tvStatName.text = stats.name.getStatName().capitalize()
                 tvStatValue.text = stats.baseStat.toString()
                 progressStat.progress = stats.baseStat.toFloat()
+                progressStat.highlightView.color = root.context.getColorResource(stats.color)
             }
         }
     }
