@@ -19,11 +19,11 @@
 			style="@style/PokepediaTypographyStyles.Subtitle2"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger."
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
+			app:layout_constraintTop_toTopOf="parent"
+			tools:text="Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger." />
 
 		<TextView
 			android:id="@+id/tv_pokedex_data"
@@ -54,11 +54,11 @@
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginStart="@dimen/_50sdp"
-			android:text="Seed Pokémon"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toEndOf="@+id/tv_species_label"
-			app:layout_constraintTop_toTopOf="@+id/tv_species_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_species_label"
+			tools:text="Seed Pokémon" />
 
 		<TextView
 			android:id="@+id/tv_height_label"
@@ -76,11 +76,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="0.7m (2′04″)"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_height_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_height_label"
+			tools:text="0.7m (2′04″)" />
 
 		<TextView
 			android:id="@+id/tv_weight_label"
@@ -98,11 +98,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="6.9kg (15.2 lbs)"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_weight_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_weight_label"
+			tools:text="6.9kg (15.2 lbs)" />
 
 		<TextView
 			android:id="@+id/tv_abilities_label"
@@ -120,11 +120,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="Overgrow, Chlorophyll (hidden ability)"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_abilities_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_abilities_label"
+			tools:text="Overgrow, Chlorophyll (hidden ability)" />
 
 		<TextView
 			android:id="@+id/tv_training"
@@ -154,11 +154,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="45%"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_catch_rate_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_catch_rate_label"
+			tools:text="45%" />
 
 		<TextView
 			android:id="@+id/tv_base_friendship_label"
@@ -176,11 +176,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="70"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_base_friendship_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_base_friendship_label"
+			tools:text="70" />
 
 		<TextView
 			android:id="@+id/tv_base_experience_label"
@@ -198,11 +198,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="64"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_base_experience_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_base_experience_label"
+			tools:text="64" />
 
 		<TextView
 			android:id="@+id/tv_growth_rate_label"
@@ -220,11 +220,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="Medium Slow"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_growth_rate_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_growth_rate_label"
+			tools:text="Medium Slow" />
 
 		<TextView
 			android:id="@+id/tv_habitat_label"
@@ -242,11 +242,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="Grassland"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_habitat_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_habitat_label"
+			tools:text="Grassland" />
 
 		<TextView
 			android:id="@+id/tv_breeding"
@@ -276,11 +276,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			tools:text="♀ 87.5%, ♂ 12.5%"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_gender_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_gender_label"
+			tools:text="♀ 87.5%, ♂ 12.5%" />
 
 		<TextView
 			android:id="@+id/tv_egg_group_label"
@@ -288,21 +288,21 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/_12sdp"
-			android:text="Egg Groups"
 			android:textColor="@color/dark"
 			app:layout_constraintStart_toStartOf="@+id/tv_training"
-			app:layout_constraintTop_toBottomOf="@+id/tv_gender_label" />
+			app:layout_constraintTop_toBottomOf="@+id/tv_gender_label"
+			android:text="@string/egg_groups" />
 
 		<TextView
 			android:id="@+id/tv_egg_group"
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="Grass, Monster"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_egg_group_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_egg_group_label"
+			tools:text="Grass, Monster" />
 
 		<TextView
 			android:id="@+id/tv_egg_cycles_label"
@@ -320,11 +320,11 @@
 			style="@style/PokepediaTypographyStyles.Body1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:text="20"
 			android:textColor="@color/gray2"
 			app:layout_constraintEnd_toEndOf="@+id/tv_species"
 			app:layout_constraintStart_toStartOf="@+id/tv_species"
-			app:layout_constraintTop_toTopOf="@+id/tv_egg_cycles_label" />
+			app:layout_constraintTop_toTopOf="@+id/tv_egg_cycles_label"
+			tools:text="20" />
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 

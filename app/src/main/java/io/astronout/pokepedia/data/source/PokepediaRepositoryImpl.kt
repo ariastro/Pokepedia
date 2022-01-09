@@ -10,6 +10,7 @@ import com.skydoves.sandwich.suspendOnSuccess
 import io.astronout.pokepedia.data.source.remote.RemoteDataSource
 import io.astronout.pokepedia.data.source.remote.paging.PokepediaPagingSource
 import io.astronout.pokepedia.domain.model.Pokemon
+import io.astronout.pokepedia.domain.model.PokemonSpecies
 import io.astronout.pokepedia.domain.repository.PokepediaRepository
 import io.astronout.pokepedia.vo.Resource
 import kotlinx.coroutines.CoroutineDispatcher
@@ -42,6 +43,19 @@ class PokepediaRepositoryImpl @Inject constructor(
                 emit(Resource.Error<Pokemon>(message()))
             }.suspendOnException {
                 emit(Resource.Error<Pokemon>(message))
+            }
+        }
+    }.flowOn(ioDispatcher)
+
+    override fun getPokemonSpecies(id: Int): Flow<Resource<PokemonSpecies>> = flow {
+        emit(Resource.Loading())
+        remoteDataSource.getPokemonSpecies(id).let {
+            it.suspendOnSuccess {
+                emit(Resource.Success(data.toPokemonSpecies()))
+            }.suspendOnError {
+                emit(Resource.Error<PokemonSpecies>(message()))
+            }.suspendOnException {
+                emit(Resource.Error<PokemonSpecies>(message))
             }
         }
     }.flowOn(ioDispatcher)

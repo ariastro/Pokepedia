@@ -3,6 +3,7 @@ package io.astronout.pokepedia.ui.detail
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.viewbinding.library.fragment.viewBinding
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -24,7 +25,7 @@ import kotlin.math.abs
 class DetailFragment : BaseFragment(R.layout.fragment_detail) {
 
     private val binding: FragmentDetailBinding by viewBinding()
-    private val viewModel: DetailViewModel by viewModels()
+    private val viewModel: DetailViewModel by activityViewModels()
     private val args: DetailFragmentArgs by navArgs()
     private val navController: NavController? by lazy { findNavController() }
 
@@ -45,7 +46,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
     }
 
     override fun initData() {
-        // do nothing
+        viewModel.setPokemonId(args.pokemon.id)
     }
 
     override fun initAction() {
@@ -57,7 +58,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
     }
 
     override fun initObserver() {
-        collectLifecycleFlow(viewModel.getPokemonDetails(args.pokemon.id)) {
+        collectLifecycleFlow(viewModel.getPokemonDetails()) {
             when (it) {
                 is Resource.Error -> {
                     showToast(it.message.toString())

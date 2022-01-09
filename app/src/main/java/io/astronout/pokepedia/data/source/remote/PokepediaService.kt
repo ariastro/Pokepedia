@@ -1,6 +1,7 @@
 package io.astronout.pokepedia.data.source.remote
 
 import com.skydoves.sandwich.ApiResponse
+import io.astronout.pokepedia.data.source.remote.response.PokemonSpeciesResponse
 import io.astronout.pokepedia.data.source.remote.response.PokemonDetailResponse
 import io.astronout.pokepedia.data.source.remote.response.PokemonResponse
 import retrofit2.http.GET
@@ -19,6 +20,6 @@ interface PokepediaService {
     suspend fun getPokemonDetails(@Path("id") id: Int): ApiResponse<PokemonDetailResponse>
 
     @GET("pokemon-species/{id}")
-    suspend fun getPokemonSpecies(@Path("id") id: Int): ApiResponse<PokemonDetailResponse>
+    suspend fun getPokemonSpecies(@Path("id") id: Int): ApiResponse<PokemonSpeciesResponse>
 
 }

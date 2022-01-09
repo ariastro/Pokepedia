@@ -25,4 +25,5 @@
 	<string name="habitat">Habitat</string>
 	<string name="base_exp">Base Exp</string>
 	<string name="base_stats">Base Stats</string>
+	<string name="egg_groups">Egg Groups</string>
 </resources>
