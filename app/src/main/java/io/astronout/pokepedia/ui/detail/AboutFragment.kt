@@ -7,10 +7,7 @@ import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.FragmentAboutBinding
 import io.astronout.pokepedia.ui.base.BaseFragment
 import io.astronout.pokepedia.ui.detail.viewmodel.DetailViewModel
-import io.astronout.pokepedia.utils.capitalize
-import io.astronout.pokepedia.utils.collectLifecycleFlow
-import io.astronout.pokepedia.utils.getColoredString
-import io.astronout.pokepedia.utils.showToast
+import io.astronout.pokepedia.utils.*
 import io.astronout.pokepedia.vo.Resource
 
 class AboutFragment : BaseFragment(R.layout.fragment_about) {
@@ -41,8 +38,13 @@ class AboutFragment : BaseFragment(R.layout.fragment_about) {
                 is Resource.Success -> {
                     with(binding) {
                         it.data?.let { pokemon ->
-                            tvHeight.text = "${pokemon.height / 10}m"
-                            tvWeight.text = "${pokemon.weight / 10}kg"
+                            pokemon.types.firstOrNull()?.let { type ->
+                                tvPokedexData.setTextColorResource(type.name.getPokemonTypeColor())
+                                tvTraining.setTextColorResource(type.name.getPokemonTypeColor())
+                                tvBreeding.setTextColorResource(type.name.getPokemonTypeColor())
+                            }
+                            tvHeight.text = "${pokemon.height.toDouble() / 10}m"
+                            tvWeight.text = "${pokemon.weight.toDouble() / 10}kg"
                             tvAbilities.text = pokemon.abilities.joinToString { ability ->
                                 if (ability.isHidden) {
                                     "${ability.name.capitalize()} (hidden ability)"
