@@ -2,11 +2,14 @@
 <com.kennyc.view.MultiStateView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/msvAbout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	app:msv_animateViewChanges="true"
-	app:msv_viewState="content"
-	tools:context=".ui.detail.AboutFragment">
+	app:msv_loadingView="@layout/layout_loading_state_about"
+	app:msv_viewState="loading"
+	tools:context=".ui.detail.AboutFragment"
+	tools:msv_viewState="content">
 
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
@@ -288,10 +291,10 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/_12sdp"
+			android:text="@string/egg_groups"
 			android:textColor="@color/dark"
 			app:layout_constraintStart_toStartOf="@+id/tv_training"
-			app:layout_constraintTop_toBottomOf="@+id/tv_gender_label"
-			android:text="@string/egg_groups" />
+			app:layout_constraintTop_toBottomOf="@+id/tv_gender_label" />
 
 		<TextView
 			android:id="@+id/tv_egg_group"

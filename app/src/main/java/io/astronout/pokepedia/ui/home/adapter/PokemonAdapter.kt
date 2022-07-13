@@ -8,18 +8,17 @@ import androidx.paging.PagingDataAdapter
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.ItemPokemonBinding
 import io.astronout.pokepedia.di.GlideApp
 import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.utils.capitalize
 import io.astronout.pokepedia.utils.getColorResource
-import io.astronout.pokepedia.utils.setCardBackgroundColorResource
 
 class PokemonAdapter(private val onClickListener: (pokemon: Pokemon) -> Unit) :
     PagingDataAdapter<Pokemon, PokemonAdapter.PokemonViewHolder>(DIFF_CALLBACK) {

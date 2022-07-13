@@ -38,14 +38,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         changeStatusBarColor(R.color.light)
     }
 
-    override fun initAction() {
-        // do nothing
-    }
-
-    override fun initObserver() {
-        // do nothing
-    }
-
     private fun setupPokemonList() {
         with(binding) {
             val footer = LoadStateAdapter { adapter.retry() }

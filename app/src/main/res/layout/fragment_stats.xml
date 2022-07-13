@@ -7,43 +7,49 @@
 	android:padding="@dimen/_20sdp"
 	tools:context=".ui.detail.StatsFragment">
 
-	<androidx.constraintlayout.widget.ConstraintLayout
+	<com.kennyc.view.MultiStateView
+		android:id="@+id/msv_pokemon_stats"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="wrap_content"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:msv_animateViewChanges="true"
+		app:msv_loadingView="@layout/layout_loading_state_stats"
+		app:msv_viewState="loading"
+		tools:msv_viewState="content">
 
-		<TextView
-			android:id="@+id/tv_base_stats"
-			style="@style/PokepediaTypographyStyles.Subtitle2.Bold"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:text="@string/base_stats"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent"
-			tools:textColor="@color/type_grass" />
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 
-		<com.kennyc.view.MultiStateView
-			android:id="@+id/msv_pokemon_stats"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/tv_base_stats"
-			app:msv_animateViewChanges="true"
-			app:msv_viewState="content">
+			<TextView
+				android:id="@+id/tv_base_stats"
+				style="@style/PokepediaTypographyStyles.Subtitle2.Bold"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="@string/base_stats"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				tools:textColor="@color/type_grass" />
 
 			<androidx.recyclerview.widget.RecyclerView
 				android:id="@+id/rv_pokemon_stats"
-				android:layout_width="match_parent"
+				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginVertical="@dimen/_8sdp"
 				android:nestedScrollingEnabled="true"
 				android:overScrollMode="never"
 				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/tv_base_stats"
 				tools:listitem="@layout/item_pokemon_stats" />
 
-		</com.kennyc.view.MultiStateView>
 
-	</androidx.constraintlayout.widget.ConstraintLayout>
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</com.kennyc.view.MultiStateView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
 import com.google.android.material.chip.ChipGroup
+import com.kennyc.view.MultiStateView
 import io.astronout.pokepedia.R
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
@@ -216,4 +217,16 @@ fun Context.getColoredString(text: CharSequence, @ColorRes colorId: Int): Spanna
         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
     )
     return spannable
+}
+
+fun MultiStateView.showDefaultLayout() {
+    viewState = MultiStateView.ViewState.CONTENT
+}
+
+fun MultiStateView.showLoadingLayout() {
+    viewState = MultiStateView.ViewState.LOADING
+}
+
+fun MultiStateView.showEmptyLayout() {
+    viewState = MultiStateView.ViewState.EMPTY
 }

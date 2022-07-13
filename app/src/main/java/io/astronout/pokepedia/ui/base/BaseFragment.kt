@@ -9,10 +9,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 abstract class BaseFragment(@LayoutRes layoutId: Int): Fragment(layoutId) {
 
-    abstract fun initData()
-    abstract fun initUI()
-    abstract fun initAction()
-    abstract fun initObserver()
+    open fun initData() {}
+    open fun initUI() {}
+    open fun initAction() {}
+    open fun initObserver() {}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

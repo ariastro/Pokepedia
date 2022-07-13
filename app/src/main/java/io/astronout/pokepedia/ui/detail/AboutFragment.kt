@@ -5,6 +5,8 @@ import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.activityViewModels
 import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.FragmentAboutBinding
+import io.astronout.pokepedia.domain.model.Pokemon
+import io.astronout.pokepedia.domain.model.PokemonSpecies
 import io.astronout.pokepedia.ui.base.BaseFragment
 import io.astronout.pokepedia.ui.detail.viewmodel.DetailViewModel
 import io.astronout.pokepedia.utils.*
@@ -15,45 +17,16 @@ class AboutFragment : BaseFragment(R.layout.fragment_about) {
     private val binding: FragmentAboutBinding by viewBinding()
     private val viewModel: DetailViewModel by activityViewModels()
 
-    override fun initData() {
-        // do nothing
-    }
-
-    override fun initUI() {
-        // do nothing
-    }
-
-    override fun initAction() {
-        // do nothing
-    }
-
-    @SuppressLint("SetTextI18n")
     override fun initObserver() {
         collectLifecycleFlow(viewModel.getPokemonDetails()) {
             when (it) {
                 is Resource.Error -> {
                     showToast(it.message.toString())
                 }
-                is Resource.Loading -> showToast("Loading")
+                is Resource.Loading -> binding.msvAbout.showLoadingLayout()
                 is Resource.Success -> {
-                    with(binding) {
-                        it.data?.let { pokemon ->
-                            pokemon.types.firstOrNull()?.let { type ->
-                                tvPokedexData.setTextColorResource(type.name.getPokemonTypeColor())
-                                tvTraining.setTextColorResource(type.name.getPokemonTypeColor())
-                                tvBreeding.setTextColorResource(type.name.getPokemonTypeColor())
-                            }
-                            tvHeight.text = "${pokemon.height.toDouble() / 10}m"
-                            tvWeight.text = "${pokemon.weight.toDouble() / 10}kg"
-                            tvAbilities.text = pokemon.abilities.joinToString { ability ->
-                                if (ability.isHidden) {
-                                    "${ability.name.capitalize()} (hidden ability)"
-                                } else {
-                                    ability.name.capitalize()
-                                }
-                            }
-                            tvBaseExperience.text = pokemon.baseExperience.toString()
-                        }
+                    it.data?.let { pokemon ->
+                        showPokemonDetails(pokemon)
                     }
                 }
             }
@@ -64,25 +37,55 @@ class AboutFragment : BaseFragment(R.layout.fragment_about) {
                 is Resource.Error -> {
                     showToast(it.message.toString())
                 }
-                is Resource.Loading -> showToast("Loading")
+                is Resource.Loading -> binding.msvAbout.showLoadingLayout()
                 is Resource.Success -> {
-                    with(binding) {
-                        it.data?.let { pokemonSpecies ->
-                            tvFlavorText.text = pokemonSpecies.flavorTextEntries.firstOrNull { flavorTextEntry -> flavorTextEntry.language == "en" }?.flavorText?.replace("\n", " ") ?: ""
-                            tvSpecies.text = pokemonSpecies.genera.firstOrNull { genera -> genera.language == "en" }?.genus?.capitalize() ?: ""
-                            tvCatchRate.text = "${pokemonSpecies.captureRate}%"
-                            tvBaseFriendship.text = pokemonSpecies.baseHappiness.toString()
-                            tvGrowthRate.text = pokemonSpecies.growthRate.capitalize()
-                            tvHabitat.text = pokemonSpecies.habitat.capitalize()
-                            val genderRate = pokemonSpecies.genderRate.toGenderPercentage()
-                            tvGender.append(requireContext().getColoredString("♂ ${genderRate.first}%, ", R.color.height_medium))
-                            tvGender.append(requireContext().getColoredString("♀ ${genderRate.second}%", R.color.height_short))
-                            tvEggGroup.text = pokemonSpecies.eggGroups.joinToString { eggGroup -> eggGroup.capitalize() }
-                            tvEggCycles.text = pokemonSpecies.hatchCounter.toString()
-                        }
+                    it.data?.let { pokemonSpecies ->
+                        showPokemonSpecies(pokemonSpecies)
                     }
+                    binding.msvAbout.showDefaultLayout()
                 }
             }
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun showPokemonDetails(pokemon: Pokemon) {
+        with(binding) {
+            pokemon.types.firstOrNull()?.let { type ->
+                tvPokedexData.setTextColorResource(type.name.getPokemonTypeColor())
+                tvTraining.setTextColorResource(type.name.getPokemonTypeColor())
+                tvBreeding.setTextColorResource(type.name.getPokemonTypeColor())
+            }
+            tvHeight.text = "${pokemon.height.toDouble() / 10}m"
+            tvWeight.text = "${pokemon.weight.toDouble() / 10}kg"
+            tvAbilities.text = pokemon.abilities.joinToString { ability ->
+                if (ability.isHidden) {
+                    "${ability.name.capitalize()} (hidden ability)"
+                } else {
+                    ability.name.capitalize()
+                }
+            }
+            tvBaseExperience.text = pokemon.baseExperience.toString()
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun showPokemonSpecies(pokemonSpecies: PokemonSpecies) {
+        with(binding) {
+            tvFlavorText.text = pokemonSpecies.flavorTextEntries.firstOrNull { it.language == "en" }?.flavorText?.replace("\n", " ").orEmpty()
+            tvSpecies.text = pokemonSpecies.genera.firstOrNull { it.language == "en" }?.genus?.capitalize().orEmpty()
+            tvCatchRate.text = "${pokemonSpecies.captureRate}%"
+            tvBaseFriendship.text = pokemonSpecies.baseHappiness.toString()
+            tvGrowthRate.text = pokemonSpecies.growthRate.capitalize()
+            tvHabitat.text = pokemonSpecies.habitat.capitalize()
+            val genderRate = pokemonSpecies.genderRate.toGenderPercentage()
+            tvGender.apply {
+                text = ""
+                append(requireContext().getColoredString("♂ ${genderRate.first}%, ", R.color.height_medium))
+                append(requireContext().getColoredString("♀ ${genderRate.second}%", R.color.height_short))
+            }
+            tvEggGroup.text = pokemonSpecies.eggGroups.joinToString { eggGroup -> eggGroup.capitalize() }
+            tvEggCycles.text = pokemonSpecies.hatchCounter.toString()
         }
     }
 
