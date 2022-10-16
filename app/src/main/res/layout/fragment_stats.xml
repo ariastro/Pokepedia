@@ -41,6 +41,7 @@
 				android:layout_marginVertical="@dimen/_8sdp"
 				android:nestedScrollingEnabled="true"
 				android:overScrollMode="never"
+				tools:itemCount="100"
 				app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent"
