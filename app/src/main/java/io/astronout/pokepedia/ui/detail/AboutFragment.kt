@@ -21,13 +21,11 @@ class AboutFragment : BaseFragment(R.layout.fragment_about) {
         collectLifecycleFlow(viewModel.getPokemonDetails()) {
             when (it) {
                 is Resource.Error -> {
-                    showToast(it.message.toString())
+                    showToast(it.message)
                 }
                 is Resource.Loading -> binding.msvAbout.showLoadingLayout()
                 is Resource.Success -> {
-                    it.data?.let { pokemon ->
-                        showPokemonDetails(pokemon)
-                    }
+                    showPokemonDetails(it.data)
                 }
             }
         }
@@ -35,13 +33,11 @@ class AboutFragment : BaseFragment(R.layout.fragment_about) {
         collectLifecycleFlow(viewModel.getPokemonSpecies()) {
             when (it) {
                 is Resource.Error -> {
-                    showToast(it.message.toString())
+                    showToast(it.message)
                 }
                 is Resource.Loading -> binding.msvAbout.showLoadingLayout()
                 is Resource.Success -> {
-                    it.data?.let { pokemonSpecies ->
-                        showPokemonSpecies(pokemonSpecies)
-                    }
+                    showPokemonSpecies(it.data)
                     binding.msvAbout.showDefaultLayout()
                 }
             }

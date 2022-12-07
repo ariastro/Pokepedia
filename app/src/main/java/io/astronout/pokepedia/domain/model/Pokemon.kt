@@ -8,12 +8,12 @@ data class Pokemon(
     val id: Int,
     val name: String,
     val image: String,
-    val abilities: List<Abilities> = emptyList(),
-    val baseExperience: Int = 0,
-    val height: Int = 0,
-    val weight: Int = 0,
-    val stats: List<Stats> = emptyList(),
-    val types: List<Types> = emptyList()
+    val abilities: List<Abilities>,
+    val baseExperience: Int,
+    val height: Int,
+    val weight: Int,
+    val stats: List<Stats>,
+    val types: List<Types>
 ): Parcelable {
 
     fun getIdString() = String.format("#%03d", id)

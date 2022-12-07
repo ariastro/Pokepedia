@@ -4,11 +4,14 @@ import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.kennyc.view.MultiStateView
 import io.astronout.pokepedia.R
 import io.astronout.pokepedia.databinding.FragmentHomeBinding
+import io.astronout.pokepedia.databinding.ItemPokemonBinding
+import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.ui.base.BaseFragment
 import io.astronout.pokepedia.ui.home.adapter.LoadStateAdapter
 import io.astronout.pokepedia.ui.home.adapter.PokemonAdapter
@@ -26,9 +29,9 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModels()
     private val navController: NavController? by lazy { findNavController() }
 
-    private val adapter = PokemonAdapter(onClickListener = {
-        navController?.navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
-    })
+    private val adapter = PokemonAdapter { pokemon, itemPokemonBinding ->
+        navigateToDetailPokemon(pokemon, itemPokemonBinding)
+    }
 
     override fun initData() {
         setupPokemonList()
@@ -36,6 +39,20 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun initUI() {
         changeStatusBarColor(R.color.light)
+        binding.rvPokemon.apply {
+            postponeEnterTransition()
+            viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
+        }
+    }
+
+    private fun navigateToDetailPokemon(pokemon: Pokemon, itemPokemonBinding: ItemPokemonBinding) {
+        val extras = FragmentNavigatorExtras(
+            itemPokemonBinding.imgPokemon to pokemon.name,
+        )
+        navController?.navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(pokemon), extras)
     }
 
     private fun setupPokemonList() {

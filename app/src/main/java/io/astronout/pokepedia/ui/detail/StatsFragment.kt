@@ -26,19 +26,17 @@ class StatsFragment : BaseFragment(R.layout.fragment_stats) {
         collectLifecycleFlow(viewModel.getPokemonDetails()) {
             when (it) {
                 is Resource.Error -> {
-                    showToast(it.message.toString())
+                    showToast(it.message)
                 }
                 is Resource.Loading -> binding.msvPokemonStats.showLoadingLayout()
                 is Resource.Success -> {
-                    it.data?.let { pokemon ->
-                        pokemon.types.firstOrNull()?.let { type ->
-                            with(binding) {
-                                tvBaseStats.setTextColorResource(type.name.getPokemonTypeColor())
-                                msvPokemonStats.showDefaultLayout()
-                            }
+                    it.data.types.firstOrNull()?.let { type ->
+                        with(binding) {
+                            tvBaseStats.setTextColorResource(type.name.getPokemonTypeColor())
+                            msvPokemonStats.showDefaultLayout()
                         }
-                        adapter.submitList(pokemon.stats)
                     }
+                    adapter.submitList(it.data.stats)
                 }
             }
         }

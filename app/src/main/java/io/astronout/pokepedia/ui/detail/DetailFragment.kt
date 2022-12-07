@@ -1,10 +1,11 @@
 package io.astronout.pokepedia.ui.detail
 
+import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -32,6 +33,11 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
     private var isTheTitleVisible = false
     private var isTheTitleContainerVisible = true
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+    }
+
     override fun initUI() {
         with(binding) {
             startAlphaAnimation(tvToolbarTitle, 0, View.INVISIBLE)
@@ -46,6 +52,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
     }
 
     override fun initData() {
+        binding.imgPokemon.transitionName = args.pokemon.name
         viewModel.setPokemonId(args.pokemon.id)
     }
 
@@ -61,13 +68,11 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
         collectLifecycleFlow(viewModel.getPokemonDetails()) {
             when (it) {
                 is Resource.Error -> {
-                    showToast(it.message.toString())
+                    showToast(it.message)
                 }
                 is Resource.Loading -> showToast("Loading")
                 is Resource.Success -> {
-                    it.data?.let { pokemon ->
-                        showData(pokemon)
-                    }
+                    showData(it.data)
                 }
             }
         }

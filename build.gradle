@@ -17,7 +17,7 @@ buildscript {
         sandwichVersion = '1.2.0'
         hiltVersion = '2.40.2'
         viewbindingVersion = '1.0.3'
-        navigation = '2.3.5'
+        navigation = '2.4.2'
         ktxVersion = "1.4.0"
         multiStateViewVersion = "2.2.0"
         shimmerVersion = "0.5.0"

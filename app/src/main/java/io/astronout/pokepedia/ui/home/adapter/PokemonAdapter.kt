@@ -20,7 +20,7 @@ import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.utils.capitalize
 import io.astronout.pokepedia.utils.getColorResource
 
-class PokemonAdapter(private val onClickListener: (pokemon: Pokemon) -> Unit) :
+class PokemonAdapter(private val onClickListener: (pokemon: Pokemon, itemPokemonBinding: ItemPokemonBinding) -> Unit) :
     PagingDataAdapter<Pokemon, PokemonAdapter.PokemonViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
@@ -43,15 +43,12 @@ class PokemonAdapter(private val onClickListener: (pokemon: Pokemon) -> Unit) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(pokemon: Pokemon) {
             with(itemBinding) {
-//                GlideApp.with(itemBinding.root.context)
-//                    .load(pokemon.image)
-//                    .transition(GenericTransitionOptions.with(android.R.anim.fade_in))
-//                    .into(itemBinding.imgPokemon)
                 tvPokemonIndex.text = pokemon.getIdString()
                 tvPokemonName.text = pokemon.name.capitalize()
+                imgPokemon.transitionName = pokemon.name
                 loadImage(pokemon.image)
                 root.setOnClickListener {
-                    onClickListener(pokemon)
+                    onClickListener(pokemon, this)
                 }
             }
         }
