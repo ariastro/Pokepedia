@@ -2,8 +2,6 @@ package io.astronout.pokepedia.data.source.remote.response
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import kotlinx.parcelize.Parcelize
-import android.os.Parcelable
 import io.astronout.pokepedia.domain.model.Pokemon
 import io.astronout.pokepedia.utils.getPokemonId
 import io.astronout.pokepedia.utils.getPokemonImage
@@ -24,7 +22,13 @@ data class PokemonResponse(
             return Pokemon(
                 id = url.getPokemonId(),
                 name = name,
-                image = url.getPokemonId().getPokemonImage()
+                image = url.getPokemonId().getPokemonImage(),
+                abilities = emptyList(),
+                baseExperience = 0,
+                height = 0,
+                weight = 0,
+                stats = emptyList(),
+                types = emptyList()
             )
         }
     }
