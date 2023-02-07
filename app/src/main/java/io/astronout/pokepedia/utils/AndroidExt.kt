@@ -1,7 +1,6 @@
 package io.astronout.pokepedia.utils
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
 import android.text.Spannable
@@ -13,7 +12,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -27,10 +25,10 @@ import com.google.android.material.chip.ChipDrawable
 import com.google.android.material.chip.ChipGroup
 import com.kennyc.view.MultiStateView
 import io.astronout.pokepedia.R
-import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.util.*
 
 fun View.toVisible() {
@@ -86,7 +84,9 @@ fun MaterialCardView.setCardBackgroundColorResource(colorId: Int) {
     )
 }
 
-fun String.getPokemonId() = this.substringAfter("pokemon").replace("/", "").toInt()
+fun Int.getPokemonIndex() = String.format("#%03d", this)
+fun String.getPokemonId() = substringAfter(if (contains("species")) "pokemon-species" else "pokemon").replace("/", "").toInt()
+fun String.getEvolutionId() = substringAfter("evolution-chain").replace("/", "").toInt()
 
 fun Int.getPokemonImage() = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$this.png"
 //fun Int.getPokemonImage() = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/$this.png"

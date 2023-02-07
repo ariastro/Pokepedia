@@ -14,6 +14,7 @@
 		android:layout_height="@dimen/_250sdp"
 		android:fitsSystemWindows="false"
 		app:elevation="0dp"
+		android:background="@color/light"
 		tools:background="@color/background_type_grass">
 
 		<com.google.android.material.appbar.CollapsingToolbarLayout
@@ -36,8 +37,7 @@
 			<androidx.constraintlayout.widget.ConstraintLayout
 				android:id="@+id/container_pokemon"
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				tools:context=".ui.detail.DetailActivity">
+				android:layout_height="match_parent">
 
 				<androidx.appcompat.widget.AppCompatTextView
 					android:id="@+id/tv_pokemon_name_banner"
@@ -160,6 +160,7 @@
 	<androidx.core.widget.NestedScrollView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:fillViewport="true"
 		android:background="@drawable/ic_half_rounded"
 		android:overScrollMode="never"
 		app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">

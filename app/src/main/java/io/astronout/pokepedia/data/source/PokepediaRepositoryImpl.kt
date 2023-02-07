@@ -57,6 +57,18 @@ class PokepediaRepositoryImpl @Inject constructor(
         }
     }.onStart { emit(Resource.Loading) }.flowOn(ioDispatcher)
 
+    override fun getPokemonEvolution(id: Int) = flow {
+        remoteDataSource.getPokemonEvolution(id).let {
+            it.suspendOnSuccess {
+                emit(Resource.Success(data.toPokemonEvolution()))
+            }.suspendOnError {
+                emit(Resource.Error(message()))
+            }.suspendOnException {
+                emit(Resource.Error(message.orEmpty()))
+            }
+        }
+    }.onStart { emit(Resource.Loading) }.flowOn(ioDispatcher)
+
     companion object {
         const val STARTING_OFFSET_INDEX = 0
         const val NETWORK_PAGE_SIZE = 20

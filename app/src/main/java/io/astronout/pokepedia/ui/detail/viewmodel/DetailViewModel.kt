@@ -21,4 +21,6 @@ class DetailViewModel @Inject constructor(private val pokepediaRepository: Pokep
 
     fun getPokemonSpecies() = pokepediaRepository.getPokemonSpecies(pokemonId.value ?: 0)
 
+    fun getPokemonEvolution(evolutionId: Int) = pokepediaRepository.getPokemonEvolution(evolutionId)
+
 }

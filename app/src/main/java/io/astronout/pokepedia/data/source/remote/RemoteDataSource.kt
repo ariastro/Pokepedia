@@ -10,4 +10,6 @@ class RemoteDataSource @Inject constructor(private val pokepediaService: Pokeped
 
     suspend fun getPokemonSpecies(id: Int) = pokepediaService.getPokemonSpecies(id)
 
+    suspend fun getPokemonEvolution(id: Int) = pokepediaService.getPokemonEvolution(id)
+
 }

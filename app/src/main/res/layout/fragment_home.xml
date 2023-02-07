@@ -112,7 +112,7 @@
 			android:fadeScrollbars="false"
 			android:overScrollMode="never"
 			android:paddingHorizontal="@dimen/_8sdp"
-			android:layout_marginVertical="@dimen/_20sdp"
+			android:paddingVertical="@dimen/_20sdp"
 			app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
 			app:spanCount="2"
 			tools:itemCount="100"

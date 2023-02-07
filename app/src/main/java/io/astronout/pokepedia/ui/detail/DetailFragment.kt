@@ -166,7 +166,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
 
     companion object {
         const val PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR = 0.4F
-        const val PERCENTAGE_TO_HIDE_TITLE_DETAILS = 0.2F
+        const val PERCENTAGE_TO_HIDE_TITLE_DETAILS = 0.3F
         const val ALPHA_ANIMATIONS_DURATION = 200L
     }
 

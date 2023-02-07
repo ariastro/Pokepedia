@@ -8,6 +8,7 @@ data class PokemonSpecies(
     val baseHappiness: Int,
     val captureRate: Int,
     val eggGroups: List<String>,
+    val evolutionChainId: Int,
     val flavorTextEntries: List<FlavorTextEntry>,
     val genderRate: Int,
     val genera: List<Genera>,

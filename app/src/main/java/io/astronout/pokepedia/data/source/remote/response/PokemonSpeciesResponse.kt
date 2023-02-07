@@ -3,12 +3,14 @@ package io.astronout.pokepedia.data.source.remote.response
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import io.astronout.pokepedia.domain.model.PokemonSpecies
+import io.astronout.pokepedia.utils.getEvolutionId
 
 @JsonClass(generateAdapter = true)
 data class PokemonSpeciesResponse(
     @field:Json(name = "base_happiness") val baseHappiness: Int,
     @field:Json(name = "capture_rate") val captureRate: Int,
     @field:Json(name = "egg_groups") val eggGroups: List<EggGroup>,
+    @field:Json(name = "evolution_chain") val evolutionChain: EvolutionChain,
     @field:Json(name = "flavor_text_entries") val flavorTextEntries: List<FlavorTextEntry>,
     @field:Json(name = "gender_rate") val genderRate: Int,
     @field:Json(name = "genera") val genera: List<Genera>,
@@ -32,6 +34,11 @@ data class PokemonSpeciesResponse(
     data class EggGroup(
         @field:Json(name = "name") val name: String,
         @field:Json(name = "url") val url: String
+    )
+
+    @JsonClass(generateAdapter = true)
+    data class EvolutionChain(
+        @field:Json(name = "url") val url: String? = null
     )
 
     @JsonClass(generateAdapter = true)
@@ -89,6 +96,7 @@ data class PokemonSpeciesResponse(
             baseHappiness = baseHappiness,
             captureRate = captureRate,
             eggGroups = eggGroups.map { it.name },
+            evolutionChainId = evolutionChain.url?.getEvolutionId() ?: 0,
             flavorTextEntries = flavorTextEntries.map {
                 PokemonSpecies.FlavorTextEntry(
                     flavorText = it.flavorText,

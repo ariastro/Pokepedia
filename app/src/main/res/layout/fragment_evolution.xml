@@ -1,14 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".ui.detail.EvolutionFragment">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_20sdp"
+    tools:context=".ui.detail.EvolutionFragment">
 
-	<!-- TODO: Update blank fragment layout -->
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:text="@string/hello_blank_fragment" />
+    <TextView
+        android:id="@+id/tv_evolution_chart"
+        style="@style/PokepediaTypographyStyles.Subtitle2.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/evolution_chart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textColor="@color/type_grass" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_first_evolution"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/pokeball"
+        android:backgroundTint="@color/gray5"
+        android:padding="@dimen/_8sdp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="@id/tv_first_pokemon_name"
+        app:layout_constraintEnd_toEndOf="@id/tv_first_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_evolution_chart"
+        tools:srcCompat="@drawable/bulbasaur" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_first_pokemon_index"
+        style="@style/PokepediaTypographyStyles.Body1.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:textColor="@color/gray2"
+        app:layout_constraintEnd_toEndOf="@id/tv_first_pokemon_name"
+        app:layout_constraintStart_toStartOf="@id/tv_first_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/iv_first_evolution"
+        tools:text="#001" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_first_pokemon_name"
+        style="@style/PokepediaTypographyStyles.Subtitle1.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark"
+        android:layout_marginStart="@dimen/_12sdp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_second_pokemon_name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_first_pokemon_index"
+        tools:text="Bulbasaur" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_level_up"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_level_first_evolution"
+        app:layout_constraintEnd_toEndOf="@id/tv_level_first_evolution"
+        app:layout_constraintStart_toStartOf="@id/tv_level_first_evolution"
+        app:layout_constraintTop_toTopOf="@id/iv_first_evolution"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_level_up" />
+
+    <TextView
+        android:id="@+id/tv_level_first_evolution"
+        style="@style/PokepediaTypographyStyles.Body1.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/iv_first_evolution"
+        app:layout_constraintEnd_toStartOf="@id/iv_second_evolution"
+        app:layout_constraintStart_toEndOf="@id/iv_first_evolution"
+        app:layout_constraintTop_toBottomOf="@+id/iv_level_up"
+        tools:text="(Level 16)"
+        tools:textColor="@color/dark" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_second_evolution"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/pokeball"
+        android:backgroundTint="@color/gray5"
+        android:padding="@dimen/_8sdp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@id/tv_second_pokemon_name"
+        app:layout_constraintStart_toStartOf="@id/tv_second_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_evolution_chart"
+        tools:srcCompat="@drawable/bulbasaur" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_second_pokemon_index"
+        style="@style/PokepediaTypographyStyles.Body1.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:textColor="@color/gray2"
+        app:layout_constraintEnd_toEndOf="@id/tv_second_pokemon_name"
+        app:layout_constraintStart_toStartOf="@id/tv_second_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/iv_second_evolution"
+        tools:text="#001" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_second_pokemon_name"
+        style="@style/PokepediaTypographyStyles.Subtitle1.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:textColor="@color/dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_first_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_second_pokemon_index"
+        tools:text="Bulbasaur" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_third_evolution"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/pokeball"
+        android:backgroundTint="@color/gray5"
+        android:padding="@dimen/_8sdp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@id/tv_third_pokemon_name"
+        app:layout_constraintStart_toStartOf="@id/tv_third_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_second_pokemon_name"
+        tools:srcCompat="@drawable/bulbasaur" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_third_pokemon_index"
+        style="@style/PokepediaTypographyStyles.Body1.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:textColor="@color/gray2"
+        app:layout_constraintEnd_toEndOf="@id/tv_third_pokemon_name"
+        app:layout_constraintStart_toStartOf="@id/tv_third_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/iv_third_evolution"
+        tools:text="#001" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_third_pokemon_name"
+        style="@style/PokepediaTypographyStyles.Subtitle1.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark"
+        android:layout_marginStart="@dimen/_12sdp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_fourth_pokemon_name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_third_pokemon_index"
+        tools:text="Bulbasaur" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_level_up_2"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_level_third_evolution"
+        app:layout_constraintEnd_toEndOf="@id/tv_level_third_evolution"
+        app:layout_constraintStart_toStartOf="@id/tv_level_third_evolution"
+        app:layout_constraintTop_toTopOf="@id/iv_third_evolution"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_level_up" />
+
+    <TextView
+        android:id="@+id/tv_level_third_evolution"
+        style="@style/PokepediaTypographyStyles.Body1.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/iv_third_evolution"
+        app:layout_constraintEnd_toStartOf="@id/iv_fourth_evolution"
+        app:layout_constraintStart_toEndOf="@id/iv_third_evolution"
+        app:layout_constraintTop_toBottomOf="@+id/iv_level_up_2"
+        tools:text="(Level 36)"
+        tools:textColor="@color/dark" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_fourth_evolution"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/pokeball"
+        android:backgroundTint="@color/gray5"
+        android:padding="@dimen/_8sdp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="@id/tv_fourth_pokemon_name"
+        app:layout_constraintEnd_toEndOf="@id/tv_fourth_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_second_pokemon_name"
+        tools:srcCompat="@drawable/bulbasaur" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fourth_pokemon_index"
+        style="@style/PokepediaTypographyStyles.Body1.Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:textColor="@color/gray2"
+        app:layout_constraintEnd_toEndOf="@id/tv_fourth_pokemon_name"
+        app:layout_constraintStart_toStartOf="@id/tv_fourth_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/iv_fourth_evolution"
+        tools:text="#001" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fourth_pokemon_name"
+        style="@style/PokepediaTypographyStyles.Subtitle1.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark"
+        android:layout_marginEnd="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_third_pokemon_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_fourth_pokemon_index"
+        tools:text="Bulbasaur" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
